@@ -18,20 +18,24 @@ def plot_weight(data):
     xx = df.Week.values
 
     x_J = data["week"].values()
-    # [result[i][1] for i in range(len(result))]  # df.Week.values
     y_J = data["weight"].values()
-    # [result[i][0] for i in range(len(result))]  # [i for i in range(len(df.Jennifer.to_list()))]
 
     plt.figure()
     plt.fill_between(xx, df.SD0.values, df.SD1.values, color="green", alpha=0.4)
     plt.fill_between(xx, df.SD1.values, df.SD2.values, color="yellow", alpha=0.4)
     plt.fill_between(xx, df.SD2.values, df.SD3.values, color="red", alpha=0.4)
-    plt.plot(xx, df.SD0.values, color="black")
+    plt.plot(xx, df.SD0.values, color="black", label="WHO average")
     plt.fill_between(xx, df.SD1neg.values, df.SD0.values, color="green", alpha=0.4)
     plt.fill_between(xx, df.SD2neg.values, df.SD1neg.values, color="yellow", alpha=0.4)
     plt.fill_between(xx, df.SD3neg.values, df.SD2neg.values, color="red", alpha=0.4)
     plt.scatter(x_J, y_J)
+    plt.xlim(xmin=0, xmax=13)
+    plt.ylim(ymin=0, ymax=9)
     plt.grid()
+    plt.xlabel("Weeks")
+    plt.ylabel("Weight")
+    plt.title("Weight by Weeks")
+    plt.legend()
     plt.savefig(ARTIFACT_PATH / "weight.jpg")
 
     return
