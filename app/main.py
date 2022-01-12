@@ -8,13 +8,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 
-from app.data_handler import get_weight
-from app.plot_util import plot_weight
+from app.data_handler import get_head, get_height, get_weight
+from app.plot_util import plot_head, plot_height, plot_weight
 
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
-favicon_path = "favicon.ico"
+PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+favicon_path = PROJECT_PATH / "static/favicon.png"
 
 
 @app.get("/")
@@ -34,9 +35,23 @@ def baby_weight():
     return weight_json
 
 
+@app.get("/height_test")
+def baby_height():
+    height_json = get_height()
+    plot_height(height_json)
+    return height_json
+
+
+@app.get("/head_test")
+def baby_head():
+    head_json = get_head()
+    plot_head(head_json)
+    return head_json
+
+
 @app.get("/dashboard")
 def baby_dashboard(request: Request):
     weight_json = get_weight()
     plot_weight(weight_json)
-    return templates.TemplateResponse("weight.html", {"request": request})
+    return templates.TemplateResponse("dashboard.html", {"request": request})
 
