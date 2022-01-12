@@ -19,6 +19,8 @@ def plot_fcn(
     xlabel_name,
     ylabel_name,
     title_name,
+    xmin=0,
+    xmax=13,
 ):
     plt.figure()
     plt.fill_between(xx, df.SD0.values, df.SD1.values, color="green", alpha=0.4)
@@ -29,8 +31,8 @@ def plot_fcn(
     plt.fill_between(xx, df.SD2neg.values, df.SD1neg.values, color="yellow", alpha=0.4)
     plt.fill_between(xx, df.SD3neg.values, df.SD2neg.values, color="red", alpha=0.4)
     plt.scatter(x_J, y_J)
-    plt.xlim(xmin=0, xmax=13)
-    # plt.ylim(ymin=y_min, ymax=y_max)
+    plt.xlim(xmin=xmin, xmax=xmax)
+    plt.ylim(ymin=y_min, ymax=y_max)
     plt.grid()
     plt.xlabel(xlabel_name)
     plt.ylabel(ylabel_name)
@@ -89,7 +91,7 @@ def plot_height(data):
         x_J,
         y_J,
         40,
-        69,
+        67,
         ARTIFACT_PATH,
         "height.jpg",
         "Weeks",
@@ -117,12 +119,43 @@ def plot_head(data):
         df,
         x_J,
         y_J,
-        0,
-        9,
+        30,
+        44,
         ARTIFACT_PATH,
         "head.jpg",
         "Weeks",
         "Head Circumference",
         "Height Circumference by Weeks",
+    )
+    return
+
+
+def plot_wh(weight_data, height_data):
+    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+    SOURCE_DATA_FILE = PROJECT_PATH / "data/wfl_girls_0-to-2-years_zscores.csv"
+    ARTIFACT_PATH = PROJECT_PATH / "static"
+
+    df = pd.read_csv(SOURCE_DATA_FILE)
+    del_cols = ["L", "M", "S"]
+    df = df.drop(columns=del_cols)
+    xx = df.Length.values
+
+    x_J = height_data["height"].values()
+    y_J = weight_data["weight"].values()
+
+    plot_fcn(
+        xx,
+        df,
+        x_J,
+        y_J,
+        0,
+        12,
+        ARTIFACT_PATH,
+        "wh.jpg",
+        "Height",
+        "Weight",
+        "Weight/Height",
+        xmin=45,
+        xmax=70,
     )
     return

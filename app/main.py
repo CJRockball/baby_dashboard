@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 
 from app.data_handler import get_head, get_height, get_weight
-from app.plot_util import plot_head, plot_height, plot_weight
+from app.plot_util import plot_head, plot_height, plot_weight, plot_wh
 
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
@@ -49,9 +49,22 @@ def baby_head():
     return head_json
 
 
+@app.get("/wh_test")
+def baby_wh():
+    weight_json = get_weight()
+    height_json = get_height()
+    plot_wh(weight_json, height_json)
+    return
+
+
 @app.get("/dashboard")
 def baby_dashboard(request: Request):
     weight_json = get_weight()
     plot_weight(weight_json)
+    height_json = get_height()
+    plot_height(height_json)
+    head_json = get_head()
+    plot_head(head_json)
+    plot_wh(weight_json, height_json)
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
