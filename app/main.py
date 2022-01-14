@@ -8,8 +8,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 
-from app.data_handler import get_head, get_height, get_weight
-from app.plot_util import plot_head, plot_height, plot_weight, plot_wh
+from app.data_handler import (
+    get_feeding,
+    get_head,
+    get_height,
+    get_last_date,
+    get_weight,
+)
+from app.plot_util import plot_feeding, plot_head, plot_height, plot_weight, plot_wh
 
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
@@ -57,6 +63,14 @@ def baby_wh():
     return
 
 
+@app.get("/feeding_test")
+def baby_feeding():
+    feeding_json = get_feeding()
+    weight_json = get_weight()
+    plot_feeding(feeding_json, weight_json)
+    return
+
+
 @app.get("/dashboard")
 def baby_dashboard(request: Request):
     weight_json = get_weight()
@@ -66,5 +80,8 @@ def baby_dashboard(request: Request):
     head_json = get_head()
     plot_head(head_json)
     plot_wh(weight_json, height_json)
-    return templates.TemplateResponse("dashboard.html", {"request": request})
+    last_update_date = get_last_date()
+    return templates.TemplateResponse(
+        "dashboard.html", {"request": request, "last_update_date": last_update_date}
+    )
 

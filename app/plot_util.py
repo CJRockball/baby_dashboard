@@ -53,8 +53,11 @@ def plot_weight(data):
     df = df.drop(columns=del_cols)
     xx = df.Week.values
 
-    x_J = data["week"].values()
-    y_J = data["weight"].values()
+    df2 = pd.DataFrame(data)
+    df2["date"] = pd.to_datetime(df2["date"], dayfirst=True).dt.date
+    df2[["week", "weight"]] = df2[["week", "weight"]].astype(float)
+    x_J = df2["week"].values
+    y_J = df2["weight"].values
 
     plot_fcn(
         xx,
@@ -82,8 +85,10 @@ def plot_height(data):
     df = df.drop(columns=del_cols)
     xx = df.Week.values
 
-    x_J = data["week"].values()
-    y_J = data["height"].values()
+    df2 = pd.DataFrame(data)
+    df2 = df2.astype(float)
+    x_J = df2["week"].values
+    y_J = df2["height"].values
 
     plot_fcn(
         xx,
@@ -111,8 +116,10 @@ def plot_head(data):
     df = df.drop(columns=del_cols)
     xx = df.Week.values
 
-    x_J = data["week"].values()
-    y_J = data["head"].values()
+    df2 = pd.DataFrame(data)
+    df2 = df2.astype(float)
+    x_J = df2["week"].values
+    y_J = df2["head"].values
 
     plot_fcn(
         xx,
@@ -140,8 +147,15 @@ def plot_wh(weight_data, height_data):
     df = df.drop(columns=del_cols)
     xx = df.Length.values
 
-    x_J = height_data["height"].values()
-    y_J = weight_data["weight"].values()
+    df_height = pd.DataFrame(height_data)
+    df_height = df_height.astype(float)
+
+    df_weight = pd.DataFrame(weight_data)
+    df_weight["date"] = pd.to_datetime(df_weight["date"], dayfirst=True).dt.date
+    df_weight[["week", "weight"]] = df_weight[["week", "weight"]].astype(float)
+
+    x_J = df_height["height"].values
+    y_J = df_weight["weight"].values
 
     plot_fcn(
         xx,
@@ -158,4 +172,37 @@ def plot_wh(weight_data, height_data):
         xmin=45,
         xmax=70,
     )
+    return
+
+
+def plot_feeding(feeding_data, weight_data):
+    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+    ARTIFACT_PATH = PROJECT_PATH / "static"
+
+    df = pd.DataFrame(feeding_data)
+    df2 = df[["date", "total_vol"]].copy()
+    df2["total_vol"] = df2.total_vol.astype(int)
+    df2["date"] = pd.to_datetime(df2["date"], dayfirst=True).dt.date
+
+    df_weight = pd.DataFrame(weight_data)
+    df_weight["date"] = pd.to_datetime(df_weight["date"], dayfirst=True).dt.date
+    df_weight[["week", "weight"]] = df_weight[["week", "weight"]].astype(float)
+    df_weight["total_feed"] = 150 * df_weight.weight
+    df_weight["total_feed_low"] = 130 * df_weight.weight
+    df_weight["total_feed_high"] = 170 * df_weight.weight
+
+    # Plot eating
+    plt.figure()
+    plt.bar(df2.date, df2.total_vol.values)
+    plt.plot(df_weight.date, df_weight.total_feed, color="orange")
+    plt.fill_between(
+        df_weight.date,
+        df_weight.total_feed_high,
+        df_weight.total_feed_low,
+        color="green",
+        alpha=0.4,
+    )
+    plt.xticks(rotation=45, ha="right")
+    plt.savefig(ARTIFACT_PATH / "feeding.jpg")
+
     return

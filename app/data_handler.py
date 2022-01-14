@@ -14,3 +14,17 @@ def get_height():
 def get_head():
     head_json = requests.get("http://127.0.0.1:8000/head")
     return head_json.json()
+
+
+def get_feeding():
+    feeding_json = requests.get("http://127.0.0.1:8000/feeding")
+    return feeding_json.json()
+
+
+def get_last_date():
+    feeding_json = requests.get("http://127.0.0.1:8000/feeding")
+    feeding_data = feeding_json.json()
+    feeding_date = list(feeding_data.get("date").values())
+    last_update = feeding_date[-1]
+    return last_update
+
