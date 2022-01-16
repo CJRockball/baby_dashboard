@@ -206,3 +206,27 @@ def plot_feeding(feeding_data, weight_data):
     plt.savefig(ARTIFACT_PATH / "feeding.jpg")
 
     return
+
+
+def plot_prop(feeding_data):
+    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+    ARTIFACT_PATH = PROJECT_PATH / "static"
+
+    df = pd.DataFrame(feeding_data)
+    df["bm_vol"] = df.bm_vol.astype(int)
+    df["formula_vol"] = df.formula_vol.astype(int)
+
+    df["date"] = pd.to_datetime(df["date"], dayfirst=True).dt.date
+    df["total_vol"] = df.bm_vol + df.formula_vol
+    df["bm_prop"] = df.bm_vol / df.total_vol
+    df["form_prop"] = df.formula_vol / df.total_vol
+
+    # Plot eating
+    plt.figure()
+    plt.bar(df.date, df.bm_prop.values, label="Formula")
+    plt.bar(df.date, df.form_prop.values, bottom=df.bm_prop.values, label="BM")
+
+    plt.xticks(rotation=45, ha="right")
+    plt.savefig(ARTIFACT_PATH / "proportion.jpg")
+
+    return

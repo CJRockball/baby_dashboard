@@ -1,6 +1,7 @@
 import pathlib
 
 from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
@@ -12,13 +13,23 @@ from app.data_handler import (
     get_last_date,
     get_weight,
 )
-from app.plot_util import plot_feeding, plot_head, plot_height, plot_weight, plot_wh
+from app.plot_util import (
+    plot_feeding,
+    plot_head,
+    plot_height,
+    plot_prop,
+    plot_weight,
+    plot_wh,
+)
 
-templates = Jinja2Templates(directory="templates")
-app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
 PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+TEMP_PATH = PROJECT_PATH / "templates"
+STAT_PATH = PROJECT_PATH / "static"
+templates = Jinja2Templates(directory=TEMP_PATH)
 favicon_path = PROJECT_PATH / "static/favicon.png"
+
+app = FastAPI()
+app.mount("/static", StaticFiles(directory=STAT_PATH), name="static")
 
 
 @app.get("/")
@@ -68,8 +79,15 @@ def baby_feeding():
     return
 
 
+@app.get("/prop_test")
+def prop_feeding():
+    feeding_json = get_feeding()
+    plot_prop(feeding_json)
+    return
+
+
 @app.get("/dashboard")
-def baby_dashboard(request: Request):
+def baby_dashboard(request: Request, response_class=HTMLResponse):
     weight_json = get_weight()
     plot_weight(weight_json)
     height_json = get_height()
