@@ -29,25 +29,25 @@
     <h1>Last Update {{ last_update_date }}</h1>
     <div class="row">
         <div class="column">
-            <img src="/static/feeding.jpg">
+            <img src="{{ url_for('static', path= 'feeding.jpg') }}" alt="Feeding graph">
         </div>
     </div>
 
     <div class="row1">
         <div class="column">
-            <img src="/static/weight.jpg">
+            <img src="{{ url_for('static', path= 'weight.jpg') }}" alt="Weight graph">
         </div>
         <div class="column">
-            <img src="/static/height.jpg">
+            <img src="{{ url_for('static', path= 'height.jpg') }}" alt="Height graph">
         </div>
         <div class="column">
-            <img src="/static/head.jpg">
+            <img src="{{ url_for('static', path= 'head.jpg') }}" alt="Head graph">
         </div>
     </div>
 
     <div class="row2">
         <div class="column">
-            <img src="/static/wh.jpg">
+            <img src="{{ url_for('static', path= 'wh.jpg') }}" alt="Weight/Height">
         </div>
     </div>
 </body>
