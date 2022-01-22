@@ -178,7 +178,8 @@ def plot_wh(weight_data, height_data):
 def plot_feeding(feeding_data, weight_data):
     PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
     ARTIFACT_PATH = PROJECT_PATH / "static"
-
+    print(ARTIFACT_PATH)
+    
     df = pd.DataFrame(feeding_data)
     df2 = df[["date", "total_vol"]].copy()
     df2["total_vol"] = df2.total_vol.astype(int)
@@ -203,10 +204,10 @@ def plot_feeding(feeding_data, weight_data):
         alpha=0.4,
     )
     plt.xticks(rotation=45, ha="right")
-    plt.ylabel("Volume Milk and Formula per Day [ml]")
+    plt.ylabel("Volume Food per Day [ml]")
     plt.legend()
     plt.title("Daily Food Intake")
-    plt.savefig(ARTIFACT_PATH / "feeding.jpg")
+    plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
 
     return
 
