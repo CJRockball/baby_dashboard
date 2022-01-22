@@ -10,28 +10,19 @@
             max-width: 1000px;
             margin: auto;
         }
-    </style>
-<head>
-    <meta charset="UTF-8">
-    <title>Baby Dashboard</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        .column {
-            float: left;
-            width: 33.33%;
-            padding: 5px;
-        }
-
-        /* Clearfix (clear floats) */
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
+        /* This is the key part - position and fit the image to the container */
+        .fit-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        max-width: 80%;
+        max-height: 90%
         }
     </style>
+
 </head>
 
 <body>
