@@ -22,7 +22,9 @@ def plot_fcn(
     xmin=0,
     xmax=13,
 ):
-    plt.figure()
+    plt.figure(facecolor=(0.99, 0.97, 0.97))
+    ax = plt.axes()
+    ax.set_facecolor((0.99, 0.97, 0.97))
     plt.fill_between(xx, df.SD0.values, df.SD1.values, color="green", alpha=0.4)
     plt.fill_between(xx, df.SD1.values, df.SD2.values, color="yellow", alpha=0.4)
     plt.fill_between(xx, df.SD2.values, df.SD3.values, color="red", alpha=0.4)
@@ -69,7 +71,7 @@ def plot_weight(data):
         ARTIFACT_PATH,
         "weight.jpg",
         "Weeks",
-        "Weight",
+        "Weight [kg]",
         "Weight by Weeks",
     )
     return
@@ -100,7 +102,7 @@ def plot_height(data):
         ARTIFACT_PATH,
         "height.jpg",
         "Weeks",
-        "Height",
+        "Height [cm]",
         "Height by Weeks",
     )
     return
@@ -131,8 +133,8 @@ def plot_head(data):
         ARTIFACT_PATH,
         "head.jpg",
         "Weeks",
-        "Head Circumference",
-        "Height Circumference by Weeks",
+        "Head Circumference [cm]",
+        "Head Circumference by Weeks",
     )
     return
 
@@ -166,8 +168,8 @@ def plot_wh(weight_data, height_data):
         12,
         ARTIFACT_PATH,
         "wh.jpg",
-        "Height",
-        "Weight",
+        "Height [cm]",
+        "Weight [kg]",
         "Weight/Height",
         xmin=45,
         xmax=70,
@@ -178,7 +180,6 @@ def plot_wh(weight_data, height_data):
 def plot_feeding(feeding_data, weight_data):
     PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
     ARTIFACT_PATH = PROJECT_PATH / "static"
-    print(ARTIFACT_PATH)
     
     df = pd.DataFrame(feeding_data)
     df2 = df[["date", "total_vol"]].copy()
@@ -193,7 +194,9 @@ def plot_feeding(feeding_data, weight_data):
     df_weight["total_feed_high"] = 170 * df_weight.weight
 
     # Plot eating
-    plt.figure()
+    plt.figure(facecolor=(0.99, 0.97, 0.97))
+    ax = plt.axes()
+    ax.set_facecolor((0.99, 0.97, 0.97))
     plt.bar(df2.date, df2.total_vol.values, label='Volume Eaten')
     plt.plot(df_weight.date, df_weight.total_feed, color="orange", label="Calc Requirement")
     plt.fill_between(
