@@ -193,8 +193,8 @@ def plot_feeding(feeding_data, weight_data):
 
     # Plot eating
     plt.figure()
-    plt.bar(df2.date, df2.total_vol.values)
-    plt.plot(df_weight.date, df_weight.total_feed, color="orange")
+    plt.bar(df2.date, df2.total_vol.values, label='Volume Eaten')
+    plt.plot(df_weight.date, df_weight.total_feed, color="orange", label="Calc Requirement")
     plt.fill_between(
         df_weight.date,
         df_weight.total_feed_high,
@@ -203,6 +203,9 @@ def plot_feeding(feeding_data, weight_data):
         alpha=0.4,
     )
     plt.xticks(rotation=45, ha="right")
+    plt.ylabel("Volume Milk and Formula per Day [ml]")
+    plt.legend()
+    plt.title("Daily Food Intake")
     plt.savefig(ARTIFACT_PATH / "feeding.jpg")
 
     return
