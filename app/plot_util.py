@@ -32,7 +32,7 @@ def plot_fcn(
     plt.fill_between(xx, df.SD1neg.values, df.SD0.values, color="green", alpha=0.4)
     plt.fill_between(xx, df.SD2neg.values, df.SD1neg.values, color="yellow", alpha=0.4)
     plt.fill_between(xx, df.SD3neg.values, df.SD2neg.values, color="red", alpha=0.4)
-    plt.scatter(x_J, y_J)
+    plt.scatter(x_J, y_J, label="Jennifer")
     plt.xlim(xmin=xmin, xmax=xmax)
     plt.ylim(ymin=y_min, ymax=y_max)
     plt.grid()
