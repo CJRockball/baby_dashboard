@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app import main
+from app.main import dash
 from fastapi.staticfiles import StaticFiles
 import pathlib
 
@@ -10,4 +10,4 @@ STAT_PATH = PROJECT_PATH / "static"
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory=STAT_PATH), name="static")
-app.include_router(main.dash, prefix='/api/v1/dash', tags=['dash'])
+app.include_router(dash, prefix='/api/v1/dash', tags=['dash'])
