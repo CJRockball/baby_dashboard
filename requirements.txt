@@ -7,3 +7,4 @@ pandas
 pathlib
 matplotlib
 requests
+python-multipart
