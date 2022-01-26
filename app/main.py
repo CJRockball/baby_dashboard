@@ -190,7 +190,7 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get("http://127.0.0.1:8000/api/v1/datas/reset_db")
+        requests.get("http://baby-j-data-service.herokuapp.com/api/v1/datas/reset_db") #"http://127.0.0.1:8000/api/v1/datas/reset_db")
         input_text = "Reset DB"
         logging.info("Reset db")
     
