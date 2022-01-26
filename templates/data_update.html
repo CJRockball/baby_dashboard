@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html language="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Database update page</title>
+
+</head>
+
+<body>
+    <h1>Update Baby Data</h1>
+
+    <form method="post">
+        <p>Add weight and height data</p>
+        <input type="text" name="date_w" placeholder="date (2022-01-23)">
+        <input type="text" name="week_w" placeholder="week">
+        <input type="text" name="weight" placeholder="weight">
+        <input type="text" name="height" placeholder="height">
+        <input id="weight_update" type="submit" name="submit" value="Update Weight">
+    </form>
+
+    <form action="/api/v1/dash/update_data" method="post">
+        <p>Add head circumference data</p>
+        <input type="text" name="week_h" placeholder="week">
+        <input type="text" name="head" placeholder="head">
+        <input id="head_update" type="submit" name="submit" value="Update Head">
+    </form>
+
+    <form method="post">
+        <p>Add feeding data</p>
+        <input type="text" name="date_f" placeholder="date (2022-01-23)">
+        <input type="text" name="time" placeholder="time (16:15:00)">
+        <input type="text" name="bm_vol" placeholder="bm_vol">
+        <input type="text" name="formula_vol" placeholder="formula_vol">
+        <input id="feeding_update" type="submit" name="submit" value="Update Feeding">
+    </form>
+
+    <br>
+    <form action="/api/v1/dash/dashboard">
+        <input type="submit" value="Dashboard">
+    </form>
+    <form method="post">
+        <input id="reset_db" type="submit" name="submit" value="Reset DB">
+    </form>
+
+    <div>
+        <h3>{{ input_text }}</h3>
+    </div>
+
+</body>
+
+
+</html>
