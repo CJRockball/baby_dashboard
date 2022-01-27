@@ -193,18 +193,15 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get(config['data_source']+str("reset_db")) #"http://baby-j-data-service.herokuapp.com/api/v1/datas/reset_db") #"http://127.0.0.1:8000/api/v1/datas/reset_db")
+        requests.get(config['data_source']+str("reset_db"))
         input_text = "Reset DB"
         logging.info("Reset db")
-    
-    
+       
     forw_url = f'/api/v1/dash/feedback?input_text={input_text}' 
-    
     return RedirectResponse(forw_url, status_code=status.HTTP_302_FOUND)
 
 @dash.get('/feedback')
 def feedback(request: Request, input_text: Optional[str], response_class=HTMLResponse): 
-    
     return templates.TemplateResponse("feedback.html", {"request": request, "input_text":input_text})
 
 

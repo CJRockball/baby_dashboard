@@ -202,3 +202,91 @@ httpx.ReadTimeout
 2022-01-27 13:34:27,679 INFO     Waiting for application shutdown.
 2022-01-27 13:34:27,679 INFO     Application shutdown complete.
 2022-01-27 13:34:27,679 INFO     Finished server process [17320]
+2022-01-27 14:43:06,844 INFO     Started server process [31256]
+2022-01-27 14:43:06,845 INFO     Waiting for application startup.
+2022-01-27 14:43:06,846 INFO     Application startup complete.
+2022-01-27 14:43:16,615 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 148, in handle_async_request
+    return await self.connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 128, in handle_async_request
+    ) = await self._receive_response(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 189, in _receive_response
+    event = await self._receive_event(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 225, in _receive_event
+    data = await self.socket.read(self.READ_NUM_BYTES, timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 63, in read
+    raise ReadTimeout from None
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 19, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2022-01-27 14:43:28,418 INFO     Displaying dashboard
+2022-01-27 14:43:39,544 INFO     Updating head data
+2022-01-27 14:43:54,585 INFO     Displaying dashboard
+2022-01-27 14:44:03,843 INFO     Reset db
+2022-01-27 14:44:10,541 INFO     Displaying dashboard
+2022-01-27 14:45:11,438 INFO     Reset db
+2022-01-27 14:45:26,612 INFO     Displaying dashboard
+2022-01-27 14:45:32,112 INFO     Reset db
+2022-01-27 14:46:22,800 INFO     Started server process [27284]
+2022-01-27 14:46:22,802 INFO     Waiting for application startup.
+2022-01-27 14:46:22,803 INFO     Application startup complete.
+2022-01-27 14:48:50,239 INFO     Displaying dashboard
+2022-01-27 14:54:26,615 INFO     Shutting down
