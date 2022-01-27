@@ -198,7 +198,7 @@ async def data_update_post(request: Request,
         logging.info("Reset db")
     
     
-    forw_url = f'/api/v1/dash/feedback/?input_text={input_text}' 
+    forw_url = f'/api/v1/dash/feedback?input_text={input_text}' 
     
     return RedirectResponse(forw_url, status_code=status.HTTP_302_FOUND)
 
