@@ -1,6 +1,5 @@
 import os
 import pathlib
-
 import yaml
 
 # folder to load config file
