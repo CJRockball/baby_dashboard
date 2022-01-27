@@ -23,6 +23,9 @@ from app.utils import update_head_fcn, update_weight_fcn, update_feeding_fcn
 from os import path
 import logging
 import starlette.status as status
+from config.config_utils import load_config
+
+config = load_config("config_file.yaml")
 
 PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
 TEMP_PATH = PROJECT_PATH / "templates"
