@@ -28,6 +28,10 @@
 <body>
     <h1>Dashboard of Data and Measurements for Jennifer</h1>
     <h1>Last Update {{ last_update_date }}</h1>
+    <form action="/api/v1/dash/update_data">
+        <input type="submit" value="update_data">
+    </form>
+    
     <div class="row">
         <div class="column">
             <img src="{{ url_for('static', path= 'feeding.jpg') }}" alt="Feeding graph" width='640' height ='480'>

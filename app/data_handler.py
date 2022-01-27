@@ -2,10 +2,14 @@ import httpx
 import requests
 import os
 import asyncio
+from config.config_utils import load_config
 
-CAST_SERVICE_HOST_URL = 'http://host.docker.internal:8002'
-url = os.environ.get('DATA_SERVICE_HOST_URL') or CAST_SERVICE_HOST_URL
-adr =  "http://baby-j-data-service.herokuapp.com/api/v1/datas/" # "http://127.0.0.1:8000/api/v1/datas/"  #   "http://data_service:8000/api/v1/datas/" #  
+config = load_config("config_file.yaml")
+adr = config['data_source']
+
+# CAST_SERVICE_HOST_URL = 'http://host.docker.internal:8002'
+# url = os.environ.get('DATA_SERVICE_HOST_URL') or CAST_SERVICE_HOST_URL
+# "http://baby-j-data-service.herokuapp.com/api/v1/datas/" # "http://127.0.0.1:8000/api/v1/datas/"  #   "http://data_service:8000/api/v1/datas/" #  
 
 async def get_weight():
     # w_json = requests.get("http://host.docker.internal:8000/weight")

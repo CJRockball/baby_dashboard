@@ -1,0 +1,7 @@
+#INITIAL SETTINGS
+data_source: "http://baby-j-data-service.herokuapp.com/api/v1/datas/" # "http://127.0.0.1:8000/api/v1/datas/"  #   "http://data_service:8000/api/v1/datas/" #
+
+LOADING_OPTIONS:
+  local: "http://127.0.0.1:8000/api/v1/datas/"
+  local_docker: "http://data_service:8000/api/v1/datas/"
+  heroku: "http://baby-j-data-service.herokuapp.com/api/v1/datas/"   

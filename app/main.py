@@ -23,6 +23,9 @@ from app.utils import update_head_fcn, update_weight_fcn, update_feeding_fcn
 from os import path
 import logging
 import starlette.status as status
+from config.config_utils import load_config
+
+config = load_config("config_file.yaml")
 
 PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
 TEMP_PATH = PROJECT_PATH / "templates"
@@ -190,7 +193,7 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get("http://baby-j-data-service.herokuapp.com/api/v1/datas/reset_db") #"http://127.0.0.1:8000/api/v1/datas/reset_db")
+        requests.get(config['data_source']+str("reset_db")) #"http://baby-j-data-service.herokuapp.com/api/v1/datas/reset_db") #"http://127.0.0.1:8000/api/v1/datas/reset_db")
         input_text = "Reset DB"
         logging.info("Reset db")
     
