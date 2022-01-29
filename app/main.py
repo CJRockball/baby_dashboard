@@ -145,13 +145,13 @@ async def baby_dashboard(request: Request, response_class=HTMLResponse):
     plot_height(height_json.json())    
     plot_head(head_json.json())
     plot_wh(weight_json.json(), height_json.json())
-    f = plot_feeding(feeding_json.json(), weight_json.json())
+    plot_feeding(feeding_json.json(), weight_json.json())
     last_update_date = get_last_date()
     
     logging.info("Displaying dashboard")
     
     return templates.TemplateResponse(
-        "dashboard.html", {"request": request, "last_update_date": last_update_date, "feeding_img":f}
+        "dashboard.html", {"request": request, "last_update_date": last_update_date, "feeding_img"}
     )
 
 @dash.get("/update_data")
