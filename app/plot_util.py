@@ -73,7 +73,7 @@ def plot_weight(data):
         "Weeks",
         "Weight [kg]",
         "Weight by Weeks",
-    )
+        )
     return
 
 
@@ -165,14 +165,14 @@ def plot_wh(weight_data, height_data):
         x_J,
         y_J,
         0,
-        12,
+        10,
         ARTIFACT_PATH,
         "wh.jpg",
         "Height [cm]",
         "Weight [kg]",
         "Weight/Height",
-        xmin=45,
-        xmax=70,
+        xmin=48,
+        xmax=65,
     )
     return
 
@@ -206,13 +206,14 @@ def plot_feeding(feeding_data, weight_data):
         color="green",
         alpha=0.4,
     )
+    plt.margins(0.01,0.1)
     plt.xticks(rotation=45, ha="right")
     plt.ylabel("Volume Food per Day [ml]")
     plt.legend()
     plt.title("Daily Food Intake")
     plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
 
-    return
+    return 
 
 
 def plot_prop(feeding_data):

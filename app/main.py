@@ -145,13 +145,13 @@ async def baby_dashboard(request: Request, response_class=HTMLResponse):
     plot_height(height_json.json())    
     plot_head(head_json.json())
     plot_wh(weight_json.json(), height_json.json())
-    plot_feeding(feeding_json.json(), weight_json.json())
+    f = plot_feeding(feeding_json.json(), weight_json.json())
     last_update_date = get_last_date()
     
     logging.info("Displaying dashboard")
     
     return templates.TemplateResponse(
-        "dashboard.html", {"request": request, "last_update_date": last_update_date}
+        "dashboard.html", {"request": request, "last_update_date": last_update_date, "feeding_img":f}
     )
 
 @dash.get("/update_data")
@@ -193,7 +193,7 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get(config['data_source']+str("reset_db"))
+        requests.get(config['data_mod']+str("reset_db"))
         input_text = "Reset DB"
         logging.info("Reset db")
        

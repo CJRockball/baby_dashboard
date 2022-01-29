@@ -1,6 +1,9 @@
 import requests
+from config.config_utils import load_config
 
-url = "http://baby-j-data-service.herokuapp.com/api/v1/datas/" #  "http://127.0.0.1:8000/api/v1/datas/" # "http://baby-j-data-service.herokuapp.com/api/v1/datas/" # "http://data_service:8000/api/v1/datas/" #
+config = load_config("config_file.yaml")
+url = config['data_mod']
+#url = "http://baby-j-data-service.herokuapp.com/api/v1/datas/" #  "http://127.0.0.1:8000/api/v1/datas/" # "http://baby-j-data-service.herokuapp.com/api/v1/datas/" # "http://data_service:8000/api/v1/datas/" #
 
 
 def update_head_fcn(week, head):
