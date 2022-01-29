@@ -151,7 +151,7 @@ async def baby_dashboard(request: Request, response_class=HTMLResponse):
     logging.info("Displaying dashboard")
     
     return templates.TemplateResponse(
-        "dashboard.html", {"request": request, "last_update_date": last_update_date, "feeding_img"}
+        "dashboard.html", {"request": request, "last_update_date": last_update_date}
     )
 
 @dash.get("/update_data")
