@@ -41,7 +41,9 @@ def plot_fcn(
     plt.title(title_name)
     plt.legend()
     plt.savefig(ARTIFACT_PATH / fname)
-
+    plt.clf()
+    plt.close('all') 
+    
     return
 
 
@@ -214,6 +216,8 @@ def plot_feeding(feeding_data, weight_data):
     plt.legend()
     plt.title("Daily Food Intake")
     plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
+    plt.clf()
+    plt.close('all') 
 
     return 
 
@@ -238,5 +242,7 @@ def plot_prop(feeding_data):
 
     plt.xticks(rotation=45, ha="right")
     plt.savefig(ARTIFACT_PATH / "proportion.jpg")
+    plt.clf()
+    plt.close('all') 
 
     return

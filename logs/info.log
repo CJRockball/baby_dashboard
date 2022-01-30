@@ -275,3 +275,260 @@ Traceback (most recent call last):
 httpx.ReadTimeout
 2022-01-30 10:16:34,119 INFO     Displaying dashboard
 2022-01-30 10:17:31,279 INFO     Shutting down
+2022-01-30 10:30:13,924 INFO     Started server process [19596]
+2022-01-30 10:30:13,925 INFO     Waiting for application startup.
+2022-01-30 10:30:13,926 INFO     Application startup complete.
+2022-01-30 10:30:31,384 INFO     Displaying dashboard
+2022-01-30 10:30:31,396 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 153, in baby_dashboard
+    return templates.TemplateResponse(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 86, in TemplateResponse
+    template = self.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 73, in get_template
+    return self.env.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\PatCa\Documents\PythonScripts\baby_growth\baby_dashboard\templates\dashboard.html", line 18, in template
+    {% block title %}
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2022-01-30 10:32:22,599 INFO     Displaying dashboard
+2022-01-30 10:32:29,566 INFO     Reset db
+2022-01-30 10:32:36,331 INFO     Displaying dashboard
+2022-01-30 10:35:35,127 INFO     Displaying dashboard
+2022-01-30 10:35:37,197 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 161, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\to_thread.py", line 28, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 805, in run_sync_in_worker_thread
+    return await future
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 743, in run
+    result = func(*args)
+  File ".\app\main.py", line 159, in data_update_get
+    return templates.TemplateResponse("data_update.html", {"request": request})
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 86, in TemplateResponse
+    template = self.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 73, in get_template
+    return self.env.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\PatCa\Documents\PythonScripts\baby_growth\baby_dashboard\templates\data_update.html", line 7, in template
+    {% block content}
+jinja2.exceptions.TemplateSyntaxError: unexpected '}'
+2022-01-30 10:36:03,876 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 161, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\to_thread.py", line 28, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 805, in run_sync_in_worker_thread
+    return await future
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 743, in run
+    result = func(*args)
+  File ".\app\main.py", line 159, in data_update_get
+    return templates.TemplateResponse("data_update.html", {"request": request})
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 86, in TemplateResponse
+    template = self.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 73, in get_template
+    return self.env.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\PatCa\Documents\PythonScripts\baby_growth\baby_dashboard\templates\data_update.html", line 7, in template
+    {% block content}
+jinja2.exceptions.TemplateSyntaxError: unexpected '}'
+2022-01-30 10:36:04,154 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 161, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\to_thread.py", line 28, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 805, in run_sync_in_worker_thread
+    return await future
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\anyio\_backends\_asyncio.py", line 743, in run
+    result = func(*args)
+  File ".\app\main.py", line 159, in data_update_get
+    return templates.TemplateResponse("data_update.html", {"request": request})
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 86, in TemplateResponse
+    template = self.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\templating.py", line 73, in get_template
+    return self.env.get_template(name)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\PatCa\Documents\PythonScripts\baby_growth\baby_dashboard\templates\data_update.html", line 7, in template
+    {% block content}
+jinja2.exceptions.TemplateSyntaxError: unexpected '}'
+2022-01-30 10:37:29,455 INFO     Reset db
+2022-01-30 10:37:36,483 INFO     Displaying dashboard
+2022-01-30 10:39:29,006 INFO     Started server process [7048]
+2022-01-30 10:39:29,007 INFO     Waiting for application startup.
+2022-01-30 10:39:29,007 INFO     Application startup complete.
+2022-01-30 10:39:33,755 INFO     Started server process [30148]
+2022-01-30 10:39:33,757 INFO     Waiting for application startup.
+2022-01-30 10:39:33,757 INFO     Application startup complete.
+2022-01-30 10:39:41,646 INFO     Reset db
+2022-01-30 10:39:47,892 INFO     Displaying dashboard
+2022-01-30 10:41:02,947 INFO     Started server process [32336]
+2022-01-30 10:41:02,948 INFO     Waiting for application startup.
+2022-01-30 10:41:02,950 INFO     Application startup complete.
+2022-01-30 10:41:13,734 INFO     Reset db
+2022-01-30 10:41:29,377 INFO     Displaying dashboard
+2022-01-30 10:42:48,401 INFO     Started server process [18408]
+2022-01-30 10:42:48,402 INFO     Waiting for application startup.
+2022-01-30 10:42:48,403 INFO     Application startup complete.
+2022-01-30 10:42:56,223 INFO     Started server process [13776]
+2022-01-30 10:42:56,223 INFO     Waiting for application startup.
+2022-01-30 10:42:56,229 INFO     Application startup complete.
+2022-01-30 10:43:03,090 INFO     Updating head data
+2022-01-30 10:43:09,763 INFO     Displaying dashboard
+2022-01-30 10:43:19,221 INFO     Reset db
+2022-01-30 10:43:25,512 INFO     Displaying dashboard
+2022-01-30 10:43:56,159 INFO     Started server process [19596]
+2022-01-30 10:43:56,160 INFO     Waiting for application startup.
+2022-01-30 10:43:56,161 INFO     Application startup complete.
+2022-01-30 10:44:08,967 INFO     Shutting down

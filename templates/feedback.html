@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html language="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
+{% block title %} 
     <title>Flash Message</title>
-    <style> 
-        body {
-          background-color:rgba(253, 247, 247, 0.99);
-          font-family: arial, sans-serif; 
-        }
-    </style>
+{% endblock %}
 
-</head>
+{% block content %}
+<div>
+    <h3 style="color:green"><b>{{ input_text }}</b></h3>
+</div>
+<br>
+<form action="/api/v1/dash/dashboard">
+    <input type="submit" value="Dashboard">
+</form>
+<br>
+<form action="/api/v1/dash/update_data">
+    <input type="submit" value="Update Data">
+</form>
 
-<body>
-    <div>
-        <h3 style="color:green"><b>{{ input_text }}</b></h3>
-    </div>
-    <br>
-    <form action="/api/v1/dash/dashboard">
-        <input type="submit" value="Dashboard">
-    </form>
-    <br>
-    <form action="/api/v1/dash/update_data">
-        <input type="submit" value="Update Data">
-    </form>
-
-
-</body>
-</html>
-
-
+{% endblock %}
