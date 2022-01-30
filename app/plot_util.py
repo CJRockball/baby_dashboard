@@ -22,7 +22,7 @@ def plot_fcn(
     xmin=0,
     xmax=13,
 ):
-    plt.figure(facecolor=(0.99, 0.97, 0.97))
+    plt.figure(facecolor=(0.99, 0.97, 0.97), dpi=300)
     ax = plt.axes()
     ax.set_facecolor((0.99, 0.97, 0.97))
     plt.fill_between(xx, df.SD0.values, df.SD1.values, color="green", alpha=0.4)
@@ -185,6 +185,7 @@ def plot_feeding(feeding_data, weight_data):
     df2 = df[["date", "total_vol"]].copy()
     df2["total_vol"] = df2.total_vol.astype(int)
     df2["date"] = pd.to_datetime(df2["date"], dayfirst=True).dt.date
+    df2["J_ma3"] = df2['total_vol'].rolling(7).mean()
 
     df_weight = pd.DataFrame(weight_data)
     df_weight["date"] = pd.to_datetime(df_weight["date"], dayfirst=True).dt.date
@@ -194,10 +195,11 @@ def plot_feeding(feeding_data, weight_data):
     df_weight["total_feed_high"] = 170 * df_weight.weight
 
     # Plot eating
-    plt.figure(facecolor=(0.99, 0.97, 0.97))
+    plt.figure(facecolor=(0.99, 0.97, 0.97), dpi=300)
     ax = plt.axes()
     ax.set_facecolor((0.99, 0.97, 0.97))
-    plt.bar(df2.date, df2.total_vol.values, label='Volume Eaten')
+    plt.bar(df2.date, df2.total_vol.values, label='Daily Volume Eaten')
+    plt.plot(df2.date, df2.J_ma3,color="red", alpha=0.6, label="Jen 7-day MA")
     plt.plot(df_weight.date, df_weight.total_feed, color="orange", label="Calc Requirement")
     plt.fill_between(
         df_weight.date,
@@ -230,7 +232,7 @@ def plot_prop(feeding_data):
     df["form_prop"] = df.formula_vol / df.total_vol
 
     # Plot eating
-    plt.figure()
+    plt.figure(dpi=300)
     plt.bar(df.date, df.bm_prop.values, label="Formula")
     plt.bar(df.date, df.form_prop.values, bottom=df.bm_prop.values, label="BM")
 

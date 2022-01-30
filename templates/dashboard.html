@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html language="en">
+
+
     <style> 
         body {
           background-color:rgba(253, 247, 247, 0.99);
@@ -9,8 +11,8 @@
         #content {
             max-width: 1000px;
             margin: auto;
-        }
-        /* This is the key part - position and fit the image to the container */
+        } 
+         
         .fit-img {
         position: absolute;
         top: 0;
@@ -26,6 +28,7 @@
 </head>
 
 <body>
+    <br>
     <h1>Dashboard of Data and Measurements for Jennifer</h1>
     <h3>Last Update {{ last_update_date }}</h3>
     <form action="/api/v1/dash/update_data">
