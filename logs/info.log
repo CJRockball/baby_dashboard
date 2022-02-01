@@ -532,3 +532,9 @@ jinja2.exceptions.TemplateSyntaxError: unexpected '}'
 2022-01-30 10:43:56,160 INFO     Waiting for application startup.
 2022-01-30 10:43:56,161 INFO     Application startup complete.
 2022-01-30 10:44:08,967 INFO     Shutting down
+2022-01-30 10:48:06,042 INFO     Started server process [30896]
+2022-01-30 10:48:06,042 INFO     Waiting for application startup.
+2022-01-30 10:48:06,056 INFO     Application startup complete.
+2022-01-30 10:48:29,854 INFO     Displaying dashboard
+2022-01-30 10:48:35,917 INFO     Reset db
+2022-01-30 10:48:42,051 INFO     Displaying dashboard
