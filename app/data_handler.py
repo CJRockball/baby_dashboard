@@ -1,7 +1,6 @@
 import httpx
 import requests
 import os
-import asyncio
 from config.config_utils import load_config
 
 config = load_config("config_file.yaml")

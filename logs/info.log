@@ -538,3 +538,470 @@ jinja2.exceptions.TemplateSyntaxError: unexpected '}'
 2022-01-30 10:48:29,854 INFO     Displaying dashboard
 2022-01-30 10:48:35,917 INFO     Reset db
 2022-01-30 10:48:42,051 INFO     Displaying dashboard
+2022-02-04 22:21:30,836 INFO     Started server process [20344]
+2022-02-04 22:21:30,836 INFO     Waiting for application startup.
+2022-02-04 22:21:30,852 INFO     Application startup complete.
+2022-02-04 22:22:22,311 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 148, in handle_async_request
+    return await self.connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 128, in handle_async_request
+    ) = await self._receive_response(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 189, in _receive_response
+    event = await self._receive_event(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 225, in _receive_event
+    data = await self.socket.read(self.READ_NUM_BYTES, timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 63, in read
+    raise ReadTimeout from None
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 19, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2022-02-04 22:23:49,325 INFO     Displaying dashboard
+2022-02-04 22:24:16,051 INFO     Reset db
+2022-02-04 22:25:12,884 INFO     Displaying dashboard
+2022-02-04 22:32:13,233 INFO     Displaying dashboard
+2022-02-04 22:32:25,370 INFO     Updating head data
+2022-02-04 22:32:37,912 INFO     Displaying dashboard
+2022-02-04 22:35:06,901 INFO     Displaying dashboard
+2022-02-04 22:39:55,688 INFO     Displaying dashboard
+2022-02-04 22:40:07,597 INFO     Displaying dashboard
+2022-02-04 22:43:27,261 INFO     Displaying dashboard
+2022-02-04 22:43:44,348 INFO     Displaying dashboard
+2022-02-05 08:32:03,634 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 148, in handle_async_request
+    return await self.connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 128, in handle_async_request
+    ) = await self._receive_response(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 189, in _receive_response
+    event = await self._receive_event(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 225, in _receive_event
+    data = await self.socket.read(self.READ_NUM_BYTES, timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 63, in read
+    raise ReadTimeout from None
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 19, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2022-02-05 08:32:24,420 INFO     Displaying dashboard
+2022-02-05 08:34:47,112 INFO     Started server process [15816]
+2022-02-05 08:34:47,113 INFO     Waiting for application startup.
+2022-02-05 08:34:47,114 INFO     Application startup complete.
+2022-02-05 08:37:19,970 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:40:08,596 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:41:07,785 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:41:16,808 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 130, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:41:44,693 INFO     Started server process [17412]
+2022-02-05 08:41:44,693 INFO     Waiting for application startup.
+2022-02-05 08:41:44,696 INFO     Application startup complete.
+2022-02-05 08:41:51,441 INFO     Displaying dashboard
+2022-02-05 08:42:23,083 INFO     Started server process [2040]
+2022-02-05 08:42:23,084 INFO     Waiting for application startup.
+2022-02-05 08:42:23,085 INFO     Application startup complete.
+2022-02-05 08:42:27,125 INFO     Displaying dashboard
+2022-02-05 08:42:32,495 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 196, in data_update_post
+    requests.get(config['data_mod']+str("reset_db"))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:42:50,084 INFO     Displaying dashboard
+2022-02-05 08:45:50,574 INFO     Started server process [15256]
+2022-02-05 08:45:50,574 INFO     Waiting for application startup.
+2022-02-05 08:45:50,575 INFO     Application startup complete.
+2022-02-05 08:46:12,060 INFO     Started server process [7040]
+2022-02-05 08:46:12,060 INFO     Waiting for application startup.
+2022-02-05 08:46:12,062 INFO     Application startup complete.
+2022-02-05 08:46:20,136 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 196, in data_update_post
+    requests.get(config['data_mod']+str("reset_db"))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:48:09,518 INFO     Started server process [3520]
+2022-02-05 08:48:09,519 INFO     Waiting for application startup.
+2022-02-05 08:48:09,520 INFO     Application startup complete.
+2022-02-05 08:48:17,783 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 197, in data_update_post
+    requests.get(config['data_mod']+str("reset_db"))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:48:54,015 INFO     Displaying dashboard
+2022-02-05 08:49:04,624 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 197, in data_update_post
+    requests.get(config['data_mod']+str("reset_db"))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2022-02-05 08:52:38,945 INFO     Started server process [15452]
+2022-02-05 08:52:38,946 INFO     Waiting for application startup.
+2022-02-05 08:52:38,947 INFO     Application startup complete.
+2022-02-05 08:53:10,678 INFO     Started server process [13952]
+2022-02-05 08:53:10,678 INFO     Waiting for application startup.
+2022-02-05 08:53:10,678 INFO     Application startup complete.
+2022-02-05 08:53:20,868 INFO     Displaying dashboard
+2022-02-05 08:53:27,312 INFO     Reset db
+2022-02-05 09:00:48,937 INFO     Started server process [15500]
+2022-02-05 09:00:48,937 INFO     Waiting for application startup.
+2022-02-05 09:00:48,941 INFO     Application startup complete.
+2022-02-05 09:01:22,584 INFO     Reset db
+2022-02-07 15:44:26,011 INFO     Started server process [2752]
+2022-02-07 15:44:26,012 INFO     Waiting for application startup.
+2022-02-07 15:44:26,013 INFO     Application startup complete.
+2022-02-07 15:44:32,579 INFO     Displaying dashboard
+2022-02-07 15:44:38,879 INFO     Displaying dashboard
+2022-02-07 15:44:47,638 INFO     Displaying dashboard
+2022-02-07 15:44:52,124 INFO     Reset db
+2022-02-10 17:13:14,039 INFO     Started server process [18184]
+2022-02-10 17:13:14,040 INFO     Waiting for application startup.
+2022-02-10 17:13:14,041 INFO     Application startup complete.
+2022-02-10 17:13:30,627 INFO     Displaying dashboard
+2022-02-10 17:15:35,277 INFO     Reset db
+2022-02-10 17:15:40,935 INFO     Displaying dashboard
+2022-02-10 17:17:58,702 INFO     Displaying dashboard
+2022-02-10 17:24:09,681 INFO     Shutting down
+2022-02-10 17:24:09,783 INFO     Waiting for application shutdown.
+2022-02-10 17:24:09,785 INFO     Application shutdown complete.
+2022-02-10 17:24:09,786 INFO     Finished server process [18184]

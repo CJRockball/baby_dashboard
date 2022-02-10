@@ -7,7 +7,7 @@ url = config['data_mod']
 
 
 def update_head_fcn(week, head):
-    global url      
+    global url     
     requests.post(url+"head_update/", params={'week':week, "head":head})
     return
 

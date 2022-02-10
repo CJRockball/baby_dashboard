@@ -1,5 +1,6 @@
 import pathlib
 from fastapi import Request, APIRouter, HTTPException, Form
+from requests.auth import HTTPBasicAuth
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse, RedirectResponse, HTMLResponse
 from typing import Optional
@@ -193,7 +194,7 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get(config['data_mod']+str("reset_db"))
+        requests.get(config['data_mod']+str("reset_db"), auth=HTTPBasicAuth('username', 'password'))
         input_text = "Reset DB"
         logging.info("Reset db")
        
