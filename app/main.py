@@ -25,6 +25,7 @@ from os import path
 import logging
 import starlette.status as status
 from config.config_utils import load_config
+import httpx
 
 config = load_config("config_file.yaml")
 
@@ -160,6 +161,19 @@ def data_update_get(request: Request):
     return templates.TemplateResponse("data_update.html", {"request": request})
 
 
+@dash.get("/test_token")
+async def test_token():
+    passport = {'username':'user1', 'password':'foo123'}
+    tok = httpx.post("http://127.0.0.1:8000/api/v1/up_data/token", data={'username':"user1", "password":"foo123"})
+    
+    acctoken = tok.json()
+    auth = "Bearer " + acctoken['access_token']
+    headers = {
+            'Content-Type': 'application/json',
+            'Authorization': auth
+            }
+    data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
+    return 
 
 
 @dash.post("/update_data")
@@ -194,7 +208,16 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        requests.get(config['data_mod']+str("reset_db"), auth=HTTPBasicAuth('username', 'password'))
+        passport = {'username':'user1', 'password':'foo123'}
+        tok = httpx.post("http://127.0.0.1:8000/api/v1/up_data/token", data={'username':"user1", "password":"foo123"})
+    
+        acctoken = tok.json()
+        auth = "Bearer " + acctoken['access_token']
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': auth
+            }
+        data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
         input_text = "Reset DB"
         logging.info("Reset db")
        

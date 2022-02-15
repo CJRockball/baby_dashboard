@@ -1005,3 +1005,1053 @@ TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
 2022-02-10 17:24:09,783 INFO     Waiting for application shutdown.
 2022-02-10 17:24:09,785 INFO     Application shutdown complete.
 2022-02-10 17:24:09,786 INFO     Finished server process [18184]
+2022-02-10 18:07:36,481 INFO     Started server process [22908]
+2022-02-10 18:07:36,484 INFO     Waiting for application startup.
+2022-02-10 18:07:36,484 INFO     Application startup complete.
+2022-02-10 18:07:57,414 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 136, in handle_async_request
+    self.socket = await self._open_socket(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 163, in _open_socket
+    return await self._backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\auto.py", line 44, in open_tcp_stream
+    return await self.backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 154, in open_tcp_stream
+    stream = await TLSStream.wrap(
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_exceptions.py", line 12, in map_exceptions
+    raise to_exc(exc) from None
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 131, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2022-02-10 18:08:03,534 INFO     Shutting down
+2022-02-10 18:08:03,644 INFO     Waiting for application shutdown.
+2022-02-10 18:08:03,644 INFO     Application shutdown complete.
+2022-02-10 18:08:03,647 INFO     Finished server process [22908]
+2022-02-10 18:10:31,264 INFO     Started server process [20820]
+2022-02-10 18:10:31,264 INFO     Waiting for application startup.
+2022-02-10 18:10:31,268 INFO     Application startup complete.
+2022-02-10 18:11:02,744 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 136, in handle_async_request
+    self.socket = await self._open_socket(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 163, in _open_socket
+    return await self._backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\auto.py", line 44, in open_tcp_stream
+    return await self.backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 154, in open_tcp_stream
+    stream = await TLSStream.wrap(
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_exceptions.py", line 12, in map_exceptions
+    raise to_exc(exc) from None
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 131, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2022-02-10 18:13:09,645 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 136, in handle_async_request
+    self.socket = await self._open_socket(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 163, in _open_socket
+    return await self._backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\auto.py", line 44, in open_tcp_stream
+    return await self.backend.open_tcp_stream(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 154, in open_tcp_stream
+    stream = await TLSStream.wrap(
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_exceptions.py", line 12, in map_exceptions
+    raise to_exc(exc) from None
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 131, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2022-02-10 18:13:30,237 INFO     Started server process [24068]
+2022-02-10 18:13:30,237 INFO     Waiting for application startup.
+2022-02-10 18:13:30,239 INFO     Application startup complete.
+2022-02-10 18:13:36,186 INFO     Displaying dashboard
+2022-02-11 21:12:39,707 INFO     Started server process [6844]
+2022-02-11 21:12:39,707 INFO     Waiting for application startup.
+2022-02-11 21:12:39,707 INFO     Application startup complete.
+2022-02-11 21:12:46,725 INFO     Displaying dashboard
+2022-02-11 21:12:50,194 INFO     Displaying dashboard
+2022-02-11 21:13:07,707 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 137, in jsonable_encoder
+    data = dict(obj)
+TypeError: 'property' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 141, in jsonable_encoder
+    data = vars(obj)
+TypeError: vars() argument must have __dict__ attribute
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 234, in app
+    response_data = await serialize_response(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 148, in serialize_response
+    return jsonable_encoder(response_content)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 144, in jsonable_encoder
+    raise ValueError(errors)
+ValueError: [TypeError("'property' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2022-02-11 21:13:21,749 INFO     Started server process [14848]
+2022-02-11 21:13:21,749 INFO     Waiting for application startup.
+2022-02-11 21:13:21,749 INFO     Application startup complete.
+2022-02-11 21:13:26,971 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 165, in test_reset
+    return res.dict()
+AttributeError: 'Response' object has no attribute 'dict'
+2022-02-11 21:13:44,660 INFO     Started server process [14608]
+2022-02-11 21:13:44,660 INFO     Waiting for application startup.
+2022-02-11 21:13:44,675 INFO     Application startup complete.
+2022-02-11 22:06:03,872 INFO     Started server process [928]
+2022-02-11 22:06:03,873 INFO     Waiting for application startup.
+2022-02-11 22:06:03,874 INFO     Application startup complete.
+2022-02-11 22:29:08,440 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 161, in openapi
+    return JSONResponse(self.openapi())
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 136, in openapi
+    self.openapi_schema = get_openapi(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\openapi\utils.py", line 392, in get_openapi
+    result = get_openapi_path(route=route, model_name_map=model_name_map)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\openapi\utils.py", line 195, in get_openapi_path
+    operation_parameters = get_openapi_operation_parameters(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\openapi\utils.py", line 99, in get_openapi_operation_parameters
+    "schema": field_schema(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pydantic\schema.py", line 234, in field_schema
+    s, schema_overrides = get_field_info_schema(field)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pydantic\schema.py", line 202, in get_field_info_schema
+    schema['default'] = encode_default(field.default)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pydantic\schema.py", line 899, in encode_default
+    return pydantic_encoder(dft)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pydantic\json.py", line 95, in pydantic_encoder
+    raise TypeError(f"Object of type '{obj.__class__.__name__}' is not JSON serializable")
+TypeError: Object of type 'type' is not JSON serializable
+2022-02-11 23:00:54,914 INFO     Started server process [8488]
+2022-02-11 23:00:54,930 INFO     Waiting for application startup.
+2022-02-11 23:00:54,930 INFO     Application startup complete.
+2022-02-11 23:04:16,261 INFO     Started server process [14800]
+2022-02-11 23:04:16,262 INFO     Waiting for application startup.
+2022-02-11 23:04:16,263 INFO     Application startup complete.
+2022-02-11 23:04:25,885 INFO     Started server process [5740]
+2022-02-11 23:04:25,886 INFO     Waiting for application startup.
+2022-02-11 23:04:25,886 INFO     Application startup complete.
+2022-02-11 23:04:27,975 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 164, in test_reset
+    form_data = {"username" : user1, "password" : foo123}
+NameError: name 'user1' is not defined
+2022-02-11 23:04:49,112 INFO     Started server process [15852]
+2022-02-11 23:04:49,113 INFO     Waiting for application startup.
+2022-02-11 23:04:49,114 INFO     Application startup complete.
+2022-02-11 23:05:04,196 INFO     Started server process [15592]
+2022-02-11 23:05:04,197 INFO     Waiting for application startup.
+2022-02-11 23:05:04,198 INFO     Application startup complete.
+2022-02-11 23:16:26,102 INFO     Started server process [15332]
+2022-02-11 23:16:26,103 INFO     Waiting for application startup.
+2022-02-11 23:16:26,103 INFO     Application startup complete.
+2022-02-11 23:18:06,072 INFO     Started server process [15192]
+2022-02-11 23:18:06,073 INFO     Waiting for application startup.
+2022-02-11 23:18:06,074 INFO     Application startup complete.
+2022-02-11 23:18:10,102 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 165, in test_reset
+    res = requests.get(config['data_mod']+str("reset_db"), form_data=form_data)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+TypeError: request() got an unexpected keyword argument 'form_data'
+2022-02-11 23:19:07,495 INFO     Started server process [15552]
+2022-02-11 23:19:07,496 INFO     Waiting for application startup.
+2022-02-11 23:19:07,497 INFO     Application startup complete.
+2022-02-11 23:19:11,794 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 165, in test_reset
+    res = requests.get(config['data_mod']+str("reset_db"), auth=form_data)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\sessions.py", line 528, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\sessions.py", line 456, in prepare_request
+    p.prepare(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\models.py", line 320, in prepare
+    self.prepare_auth(auth, url)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\models.py", line 556, in prepare_auth
+    r = auth(self)
+TypeError: 'dict' object is not callable
+2022-02-11 23:19:37,857 INFO     Started server process [7736]
+2022-02-11 23:19:37,857 INFO     Waiting for application startup.
+2022-02-11 23:19:37,857 INFO     Application startup complete.
+2022-02-11 23:21:39,302 INFO     Started server process [3216]
+2022-02-11 23:21:39,302 INFO     Waiting for application startup.
+2022-02-11 23:21:39,302 INFO     Application startup complete.
+2022-02-11 23:21:44,052 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 165, in test_reset
+    res = requests.get(config['data_mod']+str("reset_db"), data=data_form)
+NameError: name 'data_form' is not defined
+2022-02-11 23:21:58,943 INFO     Started server process [14956]
+2022-02-11 23:21:58,944 INFO     Waiting for application startup.
+2022-02-11 23:21:58,945 INFO     Application startup complete.
+2022-02-11 23:22:26,802 INFO     Started server process [2796]
+2022-02-11 23:22:26,803 INFO     Waiting for application startup.
+2022-02-11 23:22:26,804 INFO     Application startup complete.
+2022-02-11 23:22:29,441 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 165, in test_reset
+    res = requests.get(config['data_mod']+str("reset_db"), form_data=form_data)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+TypeError: request() got an unexpected keyword argument 'form_data'
+2022-02-11 23:22:58,735 INFO     Started server process [8720]
+2022-02-11 23:22:58,735 INFO     Waiting for application startup.
+2022-02-11 23:22:58,751 INFO     Application startup complete.
+2022-02-11 23:31:07,904 INFO     Started server process [12204]
+2022-02-11 23:31:07,904 INFO     Waiting for application startup.
+2022-02-11 23:31:07,908 INFO     Application startup complete.
+2022-02-11 23:31:18,601 INFO     Started server process [14928]
+2022-02-11 23:31:18,601 INFO     Waiting for application startup.
+2022-02-11 23:31:18,608 INFO     Application startup complete.
+2022-02-11 23:31:29,494 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 171, in test_token
+    res = requests.get(config['data_mod']+str("token"), form_data=form_data)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+TypeError: request() got an unexpected keyword argument 'form_data'
+2022-02-11 23:31:47,006 INFO     Started server process [7980]
+2022-02-11 23:31:47,007 INFO     Waiting for application startup.
+2022-02-11 23:31:47,008 INFO     Application startup complete.
+2022-02-11 23:31:48,923 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 137, in jsonable_encoder
+    data = dict(obj)
+TypeError: 'property' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 141, in jsonable_encoder
+    data = vars(obj)
+TypeError: vars() argument must have __dict__ attribute
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 234, in app
+    response_data = await serialize_response(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 148, in serialize_response
+    return jsonable_encoder(response_content)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 144, in jsonable_encoder
+    raise ValueError(errors)
+ValueError: [TypeError("'property' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2022-02-11 23:32:07,729 INFO     Started server process [12996]
+2022-02-11 23:32:07,730 INFO     Waiting for application startup.
+2022-02-11 23:32:07,731 INFO     Application startup complete.
+2022-02-11 23:32:18,255 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 137, in jsonable_encoder
+    data = dict(obj)
+TypeError: 'property' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 141, in jsonable_encoder
+    data = vars(obj)
+TypeError: vars() argument must have __dict__ attribute
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 234, in app
+    response_data = await serialize_response(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 148, in serialize_response
+    return jsonable_encoder(response_content)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 144, in jsonable_encoder
+    raise ValueError(errors)
+ValueError: [TypeError("'property' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2022-02-11 23:34:20,364 INFO     Started server process [16552]
+2022-02-11 23:34:20,365 INFO     Waiting for application startup.
+2022-02-11 23:34:20,366 INFO     Application startup complete.
+2022-02-11 23:34:22,460 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 137, in jsonable_encoder
+    data = dict(obj)
+TypeError: 'property' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 141, in jsonable_encoder
+    data = vars(obj)
+TypeError: vars() argument must have __dict__ attribute
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 234, in app
+    response_data = await serialize_response(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 148, in serialize_response
+    return jsonable_encoder(response_content)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 144, in jsonable_encoder
+    raise ValueError(errors)
+ValueError: [TypeError("'property' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2022-02-11 23:34:34,601 INFO     Started server process [16396]
+2022-02-11 23:34:34,601 INFO     Waiting for application startup.
+2022-02-11 23:34:34,603 INFO     Application startup complete.
+2022-02-11 23:34:43,468 INFO     Started server process [17216]
+2022-02-11 23:34:43,469 INFO     Waiting for application startup.
+2022-02-11 23:34:43,470 INFO     Application startup complete.
+2022-02-11 23:34:47,364 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 137, in jsonable_encoder
+    data = dict(obj)
+TypeError: 'property' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 141, in jsonable_encoder
+    data = vars(obj)
+TypeError: vars() argument must have __dict__ attribute
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 234, in app
+    response_data = await serialize_response(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 148, in serialize_response
+    return jsonable_encoder(response_content)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 145, in jsonable_encoder
+    return jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 93, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\encoders.py", line 144, in jsonable_encoder
+    raise ValueError(errors)
+ValueError: [TypeError("'property' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2022-02-11 23:35:52,877 INFO     Started server process [16668]
+2022-02-11 23:35:52,877 INFO     Waiting for application startup.
+2022-02-11 23:35:52,878 INFO     Application startup complete.
+2022-02-11 23:35:54,228 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 171, in test_token
+    res = requests.post(config['data_mod']+str("token"), data=form_data.dict)
+AttributeError: 'dict' object has no attribute 'dict'
+2022-02-11 23:36:05,804 INFO     Started server process [17192]
+2022-02-11 23:36:05,804 INFO     Waiting for application startup.
+2022-02-11 23:36:05,816 INFO     Application startup complete.
+2022-02-11 23:36:08,556 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 171, in test_token
+    res = requests.post(config['data_mod']+str("token"), data=form_data.dict())
+AttributeError: 'dict' object has no attribute 'dict'
+2022-02-12 07:40:54,681 INFO     Started server process [17984]
+2022-02-12 07:40:54,681 INFO     Waiting for application startup.
+2022-02-12 07:40:54,689 INFO     Application startup complete.
+2022-02-12 07:41:00,067 INFO     Shutting down
+2022-02-14 11:12:04,508 INFO     Started server process [22816]
+2022-02-14 11:12:04,508 INFO     Waiting for application startup.
+2022-02-14 11:12:04,512 INFO     Application startup complete.
+2022-02-14 11:12:39,304 INFO     Started server process [23480]
+2022-02-14 11:12:39,304 INFO     Waiting for application startup.
+2022-02-14 11:12:39,305 INFO     Application startup complete.
+2022-02-14 11:16:40,086 INFO     Started server process [20576]
+2022-02-14 11:16:40,086 INFO     Waiting for application startup.
+2022-02-14 11:16:40,099 INFO     Application startup complete.
+2022-02-14 11:17:32,473 INFO     Started server process [22236]
+2022-02-14 11:17:32,474 INFO     Waiting for application startup.
+2022-02-14 11:17:32,475 INFO     Application startup complete.
+2022-02-14 11:18:23,735 INFO     Started server process [14772]
+2022-02-14 11:18:23,736 INFO     Waiting for application startup.
+2022-02-14 11:18:23,737 INFO     Application startup complete.
+2022-02-14 11:36:11,094 INFO     Started server process [17412]
+2022-02-14 11:36:11,109 INFO     Waiting for application startup.
+2022-02-14 11:36:11,110 INFO     Application startup complete.
+2022-02-14 11:36:32,141 INFO     Started server process [5464]
+2022-02-14 11:36:32,142 INFO     Waiting for application startup.
+2022-02-14 11:36:32,143 INFO     Application startup complete.
+2022-02-14 11:36:50,323 INFO     Displaying dashboard
+2022-02-14 11:36:57,854 INFO     Reset db
+2022-02-14 11:37:12,892 INFO     Displaying dashboard
+2022-02-14 11:38:18,558 INFO     Reset db
+2022-02-15 13:07:14,541 INFO     Shutting down
+2022-02-15 13:07:14,661 INFO     Waiting for application shutdown.
+2022-02-15 13:07:14,667 INFO     Application shutdown complete.
+2022-02-15 13:07:14,667 INFO     Finished server process [5464]
