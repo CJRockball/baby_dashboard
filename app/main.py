@@ -156,10 +156,6 @@ async def baby_dashboard(request: Request, response_class=HTMLResponse):
         "dashboard.html", {"request": request, "last_update_date": last_update_date}
     )
 
-@dash.get("/update_data")
-def data_update_get(request: Request):
-    return templates.TemplateResponse("data_update.html", {"request": request})
-
 
 @dash.get("/test_token")
 async def test_token():
@@ -175,6 +171,10 @@ async def test_token():
     data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
     return 
 
+
+@dash.get("/update_data")
+def data_update_get(request: Request):
+    return templates.TemplateResponse("data_update.html", {"request": request})
 
 @dash.post("/update_data")
 async def data_update_post(request: Request, 
