@@ -2072,3 +2072,1026 @@ AttributeError: 'dict' object has no attribute 'dict'
 2022-03-08 14:33:44,908 INFO     Application startup complete.
 2022-03-08 14:33:51,784 INFO     Displaying dashboard
 2022-03-08 14:42:31,539 INFO     Displaying dashboard
+2022-03-22 18:55:03,985 INFO     Started server process [23424]
+2022-03-22 18:55:03,992 INFO     Waiting for application startup.
+2022-03-22 18:55:03,993 INFO     Application startup complete.
+2022-03-22 18:56:33,089 INFO     Shutting down
+2022-03-22 18:56:33,191 INFO     Waiting for application shutdown.
+2022-03-22 18:56:33,192 INFO     Application shutdown complete.
+2022-03-22 18:56:33,192 INFO     Finished server process [23424]
+2022-03-22 18:59:13,582 INFO     Started server process [27988]
+2022-03-22 18:59:13,584 INFO     Waiting for application startup.
+2022-03-22 18:59:13,586 INFO     Application startup complete.
+2022-03-22 19:00:25,304 INFO     Displaying dashboard
+2022-03-22 19:04:38,088 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 215, in data_update_post
+    auth = "Bearer " + acctoken['access_token']
+KeyError: 'access_token'
+2022-03-22 19:05:35,903 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 164, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 35, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-03-22 21:12:40,164 INFO     Started server process [28476]
+2022-03-22 21:12:40,164 INFO     Waiting for application startup.
+2022-03-22 21:12:40,165 INFO     Application startup complete.
+2022-03-22 21:13:04,728 INFO     Displaying dashboard
+2022-03-23 14:18:57,810 INFO     Started server process [26472]
+2022-03-23 14:18:57,812 INFO     Waiting for application startup.
+2022-03-23 14:18:57,812 INFO     Application startup complete.
+2022-03-23 14:19:11,005 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 150, in baby_dashboard
+    plot_feeding(feeding_json.json(), weight_json.json())
+  File ".\app\plot_util.py", line 209, in plot_feeding
+    700*np.ones(number_of_data), #df_weight.total_feed_high,
+NameError: name 'np' is not defined
+2022-03-23 14:20:30,639 INFO     Started server process [24408]
+2022-03-23 14:20:30,640 INFO     Waiting for application startup.
+2022-03-23 14:20:30,641 INFO     Application startup complete.
+2022-03-23 14:20:36,189 INFO     Displaying dashboard
+2022-03-23 14:21:24,235 INFO     Started server process [28620]
+2022-03-23 14:21:24,235 INFO     Waiting for application startup.
+2022-03-23 14:21:24,240 INFO     Application startup complete.
+2022-03-23 14:21:28,720 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 150, in baby_dashboard
+    plot_feeding(feeding_json.json(), weight_json.json())
+  File ".\app\plot_util.py", line 208, in plot_feeding
+    plt.fill_between(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2543, in fill_between
+    return gca().fill_between(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 5206, in fill_between
+    return self._fill_between_x_or_y(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 5127, in _fill_between_x_or_y
+    where = where & ~functools.reduce(
+ValueError: operands could not be broadcast together with shapes (26,) (27,) 
+2022-03-23 19:23:14,740 INFO     Started server process [1212]
+2022-03-23 19:23:14,740 INFO     Waiting for application startup.
+2022-03-23 19:23:14,746 INFO     Application startup complete.
+2022-03-23 19:23:27,302 INFO     Displaying dashboard
+2022-04-15 09:43:42,952 INFO     Started server process [17276]
+2022-04-15 09:43:42,952 INFO     Waiting for application startup.
+2022-04-15 09:43:42,955 INFO     Application startup complete.
+2022-04-15 09:44:59,614 INFO     Displaying dashboard
+2022-04-15 09:47:06,933 INFO     Started server process [16844]
+2022-04-15 09:47:06,934 INFO     Waiting for application startup.
+2022-04-15 09:47:06,935 INFO     Application startup complete.
+2022-04-15 09:47:16,240 INFO     Displaying dashboard
+2022-04-15 09:50:42,238 INFO     Started server process [3744]
+2022-04-15 09:50:42,239 INFO     Waiting for application startup.
+2022-04-15 09:50:42,240 INFO     Application startup complete.
+2022-04-15 09:50:51,529 INFO     Displaying dashboard
+2022-04-15 09:51:37,305 INFO     Displaying dashboard
+2022-04-15 09:54:48,210 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 148, in baby_dashboard
+    plot_head(head_json.json())
+  File ".\app\plot_util.py", line 122, in plot_head
+    xx = df.Week.values
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\generic.py", line 5487, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'Week'
+2022-04-15 09:59:27,701 INFO     Started server process [16028]
+2022-04-15 09:59:27,701 INFO     Waiting for application startup.
+2022-04-15 09:59:27,711 INFO     Application startup complete.
+2022-04-15 09:59:41,547 INFO     Displaying dashboard
+2022-04-15 10:21:13,157 INFO     Started server process [16168]
+2022-04-15 10:21:13,159 INFO     Waiting for application startup.
+2022-04-15 10:21:13,159 INFO     Application startup complete.
+2022-04-15 10:21:21,738 INFO     Displaying dashboard
+2022-04-15 10:27:52,041 INFO     Started server process [8348]
+2022-04-15 10:27:52,042 INFO     Waiting for application startup.
+2022-04-15 10:27:52,043 INFO     Application startup complete.
+2022-04-15 10:28:27,308 INFO     Started server process [4244]
+2022-04-15 10:28:27,309 INFO     Waiting for application startup.
+2022-04-15 10:28:27,310 INFO     Application startup complete.
+2022-04-15 10:28:36,705 INFO     Started server process [3304]
+2022-04-15 10:28:36,706 INFO     Waiting for application startup.
+2022-04-15 10:28:36,707 INFO     Application startup complete.
+2022-04-15 10:28:41,173 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 88, in plot_height
+    df = pd.read_csv(SOURCE_DATA_FILE)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PatCa\\Documents\\PythonScripts\\baby_growth\\baby_dashboard\\data\\lhfa_girls_0-to-5-years_zscores.csv'
+2022-04-15 10:30:50,862 INFO     Started server process [11648]
+2022-04-15 10:30:50,862 INFO     Waiting for application startup.
+2022-04-15 10:30:50,867 INFO     Application startup complete.
+2022-04-15 10:30:52,687 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 88, in plot_height
+    df = pd.read_csv(SOURCE_DATA_FILE)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PatCa\\Documents\\PythonScripts\\baby_growth\\baby_dashboard\\data\\lhfa_girls_0-to-5-years_zscores.csv'
+2022-04-15 10:31:08,842 INFO     Started server process [8568]
+2022-04-15 10:31:08,842 INFO     Waiting for application startup.
+2022-04-15 10:31:08,842 INFO     Application startup complete.
+2022-04-15 10:31:09,272 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 88, in plot_height
+    df = pd.read_csv(SOURCE_DATA_FILE)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PatCa\\Documents\\PythonScripts\\baby_growth\\baby_dashboard\\data\\lhfa_girls_0-to-5-years-zscores.csv'
+2022-04-15 10:31:34,546 INFO     Started server process [5236]
+2022-04-15 10:31:34,547 INFO     Waiting for application startup.
+2022-04-15 10:31:34,548 INFO     Application startup complete.
+2022-04-15 10:31:38,295 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 88, in plot_height
+    df = pd.read_csv(SOURCE_DATA_FILE)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PatCa\\Documents\\PythonScripts\\baby_growth\\baby_dashboard\\data\\lhfa_girls_0-to-2-years-zscores.csv'
+2022-04-15 10:32:46,873 INFO     Started server process [1264]
+2022-04-15 10:32:46,874 INFO     Waiting for application startup.
+2022-04-15 10:32:46,875 INFO     Application startup complete.
+2022-04-15 10:33:13,567 INFO     Started server process [11840]
+2022-04-15 10:33:13,568 INFO     Waiting for application startup.
+2022-04-15 10:33:13,569 INFO     Application startup complete.
+2022-04-15 10:33:30,133 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 150, in plot_wh
+    df = pd.read_csv(SOURCE_DATA_FILE)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PatCa\\Documents\\PythonScripts\\baby_growth\\baby_dashboard\\data\\wfl_girls_0-to-2-years-zscores.csv'
+2022-04-15 10:34:17,214 INFO     Started server process [11224]
+2022-04-15 10:34:17,215 INFO     Waiting for application startup.
+2022-04-15 10:34:17,216 INFO     Application startup complete.
+2022-04-15 10:34:19,180 INFO     Displaying dashboard
+2022-04-15 10:34:58,645 INFO     Started server process [8188]
+2022-04-15 10:34:58,646 INFO     Waiting for application startup.
+2022-04-15 10:34:58,647 INFO     Application startup complete.
+2022-04-15 10:35:51,021 INFO     Started server process [7096]
+2022-04-15 10:35:51,022 INFO     Waiting for application startup.
+2022-04-15 10:35:51,023 INFO     Application startup complete.
+2022-04-15 10:35:56,711 INFO     Displaying dashboard
+2022-04-15 10:36:21,141 INFO     Started server process [8888]
+2022-04-15 10:36:21,141 INFO     Waiting for application startup.
+2022-04-15 10:36:21,149 INFO     Application startup complete.
+2022-04-15 10:36:25,077 INFO     Displaying dashboard
+2022-04-15 10:37:03,923 INFO     Started server process [9576]
+2022-04-15 10:37:03,923 INFO     Waiting for application startup.
+2022-04-15 10:37:03,927 INFO     Application startup complete.
+2022-04-15 10:37:05,898 INFO     Displaying dashboard
+2022-04-15 10:37:24,135 INFO     Started server process [16148]
+2022-04-15 10:37:24,135 INFO     Waiting for application startup.
+2022-04-15 10:37:24,144 INFO     Application startup complete.
+2022-04-15 10:37:36,926 INFO     Started server process [8280]
+2022-04-15 10:37:36,926 INFO     Waiting for application startup.
+2022-04-15 10:37:36,943 INFO     Application startup complete.
+2022-04-15 10:37:43,582 INFO     Displaying dashboard
+2022-04-15 10:38:08,089 INFO     Started server process [7864]
+2022-04-15 10:38:08,089 INFO     Waiting for application startup.
+2022-04-15 10:38:08,090 INFO     Application startup complete.
+2022-04-15 10:38:10,026 INFO     Displaying dashboard
+2022-04-15 10:39:04,651 INFO     Started server process [12436]
+2022-04-15 10:39:04,651 INFO     Waiting for application startup.
+2022-04-15 10:39:04,653 INFO     Application startup complete.
+2022-04-15 10:39:15,474 INFO     Started server process [16148]
+2022-04-15 10:39:15,474 INFO     Waiting for application startup.
+2022-04-15 10:39:15,484 INFO     Application startup complete.
+2022-04-15 10:39:17,723 INFO     Displaying dashboard
+2022-04-15 11:05:39,132 INFO     Displaying dashboard
+2022-04-15 11:06:25,487 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 215, in data_update_post
+    auth = "Bearer " + acctoken['access_token']
+KeyError: 'access_token'
+2022-04-15 11:06:34,053 INFO     Displaying dashboard
+2022-04-15 11:07:09,584 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 94, in plot_height
+    df2 = df2.astype(float)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\generic.py", line 5815, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 418, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\blocks.py", line 591, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1309, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1257, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1095, in astype_nansafe
+    result = astype_nansafe(flat, dtype, copy=copy, skipna=skipna)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1201, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '\\'
+2022-04-15 11:07:51,044 INFO     Started server process [9136]
+2022-04-15 11:07:51,045 INFO     Waiting for application startup.
+2022-04-15 11:07:51,046 INFO     Application startup complete.
+2022-04-15 11:08:01,227 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 94, in plot_height
+    df2 = df2.astype(float)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\generic.py", line 5815, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 418, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\blocks.py", line 591, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1309, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1257, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1095, in astype_nansafe
+    result = astype_nansafe(flat, dtype, copy=copy, skipna=skipna)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1201, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '\\'
+2022-04-15 11:10:53,124 INFO     Started server process [11044]
+2022-04-15 11:10:53,124 INFO     Waiting for application startup.
+2022-04-15 11:10:53,137 INFO     Application startup complete.
+2022-04-15 11:10:55,434 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 94, in plot_height
+    df2 = df2.astype(float)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\generic.py", line 5815, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 418, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\blocks.py", line 591, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1309, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1257, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1095, in astype_nansafe
+    result = astype_nansafe(flat, dtype, copy=copy, skipna=skipna)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1201, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '\\'
+2022-04-15 11:17:47,752 INFO     Started server process [13420]
+2022-04-15 11:17:47,752 INFO     Waiting for application startup.
+2022-04-15 11:17:47,753 INFO     Application startup complete.
+2022-04-15 11:17:55,652 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 147, in baby_dashboard
+    plot_height(height_json.json())
+  File ".\app\plot_util.py", line 94, in plot_height
+    df2 = df2.astype(float)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\generic.py", line 5815, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 418, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\managers.py", line 327, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\internals\blocks.py", line 591, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1309, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1257, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1095, in astype_nansafe
+    result = astype_nansafe(flat, dtype, copy=copy, skipna=skipna)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\pandas\core\dtypes\cast.py", line 1201, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '\\'
+2022-04-15 11:21:30,840 INFO     Started server process [14792]
+2022-04-15 11:21:30,842 INFO     Waiting for application startup.
+2022-04-15 11:21:30,842 INFO     Application startup complete.
+2022-04-15 11:41:10,912 INFO     Displaying dashboard
+2022-04-16 16:44:44,916 INFO     Started server process [14432]
+2022-04-16 16:44:44,917 INFO     Waiting for application startup.
+2022-04-16 16:44:44,918 INFO     Application startup complete.
+2022-04-16 16:44:51,669 INFO     Started server process [7344]
+2022-04-16 16:44:51,670 INFO     Waiting for application startup.
+2022-04-16 16:44:51,671 INFO     Application startup complete.
+2022-04-16 16:45:05,381 INFO     Displaying dashboard
+2022-04-16 16:46:12,430 INFO     Started server process [13044]
+2022-04-16 16:46:12,431 INFO     Waiting for application startup.
+2022-04-16 16:46:12,432 INFO     Application startup complete.
+2022-04-16 16:47:30,712 INFO     Started server process [11476]
+2022-04-16 16:47:30,712 INFO     Waiting for application startup.
+2022-04-16 16:47:30,726 INFO     Application startup complete.
+2022-04-16 16:47:36,696 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axis.py", line 1506, in convert_units
+    ret = self.converter.convert(x, self.units, self)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\dates.py", line 1918, in convert
+    return self._get_converter().convert(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\dates.py", line 1847, in convert
+    return date2num(value)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\dates.py", line 442, in date2num
+    tzi = getattr(d[0], 'tzinfo', None)
+IndexError: too many indices for array: array is 0-dimensional, but 1 were indexed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 150, in baby_dashboard
+    plot_feeding(feeding_json.json(), weight_json.json())
+  File ".\app\plot_util.py", line 221, in plot_feeding
+    plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 958, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\figure.py", line 3012, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backend_bases.py", line 2290, in print_figure
+    self.figure.draw(renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\artist.py", line 73, in draw_wrapper
+    result = draw(artist, renderer, *args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\artist.py", line 50, in draw_wrapper
+    return draw(artist, renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\figure.py", line 2803, in draw
+    mimage._draw_list_compositing_images(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\artist.py", line 50, in draw_wrapper
+    return draw(artist, renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_base.py", line 3082, in draw
+    mimage._draw_list_compositing_images(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\artist.py", line 50, in draw_wrapper
+    return draw(artist, renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\text.py", line 685, in draw
+    bbox, info, descent = self._get_layout(renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\text.py", line 296, in _get_layout
+    key = self._get_layout_cache_key(renderer=renderer)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\text.py", line 280, in _get_layout_cache_key
+    x, y = self.get_unitless_position()
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\text.py", line 830, in get_unitless_position
+    x = float(self.convert_xunits(self._x))
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\artist.py", line 252, in convert_xunits
+    return ax.xaxis.convert_units(x)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axis.py", line 1508, in convert_units
+    raise munits.ConversionError('Failed to convert value(s) to axis '
+matplotlib.units.ConversionError: Failed to convert value(s) to axis units: '2022-04-01'
+2022-04-16 16:48:06,392 INFO     Started server process [6780]
+2022-04-16 16:48:06,392 INFO     Waiting for application startup.
+2022-04-16 16:48:06,398 INFO     Application startup complete.
+2022-04-16 16:48:10,861 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 150, in baby_dashboard
+    plot_feeding(feeding_json.json(), weight_json.json())
+  File ".\app\plot_util.py", line 221, in plot_feeding
+    plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 958, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\figure.py", line 3012, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backend_bases.py", line 2314, in print_figure
+    result = print_method(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backend_bases.py", line 1643, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\_api\deprecation.py", line 412, in wrapper
+    return func(*inner_args, **inner_kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py", line 576, in print_jpg
+    FigureCanvasAgg.draw(self)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py", line 431, in draw
+    self.renderer = self.get_renderer(cleared=True)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py", line 447, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py", line 93, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+ValueError: Image size of 204485x1460 pixels is too large. It must be less than 2^16 in each direction.
+2022-04-16 16:48:58,594 INFO     Started server process [748]
+2022-04-16 16:48:58,594 INFO     Waiting for application startup.
+2022-04-16 16:48:58,596 INFO     Application startup complete.
+2022-04-16 16:49:03,380 INFO     Displaying dashboard
+2022-04-16 16:49:15,398 INFO     Started server process [17464]
+2022-04-16 16:49:15,398 INFO     Waiting for application startup.
+2022-04-16 16:49:15,400 INFO     Application startup complete.
+2022-04-16 16:49:17,354 INFO     Displaying dashboard
+2022-04-16 16:49:29,012 INFO     Started server process [16468]
+2022-04-16 16:49:29,012 INFO     Waiting for application startup.
+2022-04-16 16:49:29,015 INFO     Application startup complete.
+2022-04-16 16:49:31,509 INFO     Displaying dashboard
+2022-04-16 16:49:45,541 INFO     Started server process [18896]
+2022-04-16 16:49:45,541 INFO     Waiting for application startup.
+2022-04-16 16:49:45,541 INFO     Application startup complete.
+2022-04-16 16:49:47,794 INFO     Displaying dashboard
+2022-04-16 16:51:38,611 INFO     Started server process [4940]
+2022-04-16 16:51:38,611 INFO     Waiting for application startup.
+2022-04-16 16:51:38,624 INFO     Application startup complete.
+2022-04-16 16:51:41,157 INFO     Displaying dashboard
+2022-04-16 16:52:03,997 INFO     Started server process [7280]
+2022-04-16 16:52:03,997 INFO     Waiting for application startup.
+2022-04-16 16:52:03,997 INFO     Application startup complete.
+2022-04-16 16:52:06,000 INFO     Displaying dashboard
+2022-04-16 16:53:15,586 INFO     Started server process [2700]
+2022-04-16 16:53:15,586 INFO     Waiting for application startup.
+2022-04-16 16:53:15,588 INFO     Application startup complete.
+2022-04-16 16:55:35,715 INFO     Started server process [4408]
+2022-04-16 16:55:35,717 INFO     Waiting for application startup.
+2022-04-16 16:55:35,717 INFO     Application startup complete.
+2022-04-16 16:55:44,167 INFO     Displaying dashboard
+2022-04-16 16:56:06,790 INFO     Started server process [17340]
+2022-04-16 16:56:06,791 INFO     Waiting for application startup.
+2022-04-16 16:56:06,792 INFO     Application startup complete.
+2022-04-16 16:56:08,795 INFO     Displaying dashboard
+2022-04-16 17:00:20,489 INFO     Started server process [19312]
+2022-04-16 17:00:20,489 INFO     Waiting for application startup.
+2022-04-16 17:00:20,489 INFO     Application startup complete.
+2022-04-16 17:00:34,462 INFO     Started server process [12248]
+2022-04-16 17:00:34,462 INFO     Waiting for application startup.
+2022-04-16 17:00:34,462 INFO     Application startup complete.
+2022-04-16 17:02:35,926 INFO     Started server process [13292]
+2022-04-16 17:02:35,926 INFO     Waiting for application startup.
+2022-04-16 17:02:35,931 INFO     Application startup complete.
+2022-04-16 17:06:08,395 INFO     Started server process [5772]
+2022-04-16 17:06:08,395 INFO     Waiting for application startup.
+2022-04-16 17:06:08,405 INFO     Application startup complete.
+2022-04-16 17:06:50,070 INFO     Started server process [5248]
+2022-04-16 17:06:50,070 INFO     Waiting for application startup.
+2022-04-16 17:06:50,083 INFO     Application startup complete.
+2022-04-16 17:08:14,264 INFO     Started server process [18880]
+2022-04-16 17:08:14,265 INFO     Waiting for application startup.
+2022-04-16 17:08:14,266 INFO     Application startup complete.
+2022-04-16 17:08:21,027 INFO     Started server process [17532]
+2022-04-16 17:08:21,027 INFO     Waiting for application startup.
+2022-04-16 17:08:21,027 INFO     Application startup complete.
+2022-04-16 17:09:05,557 INFO     Started server process [19684]
+2022-04-16 17:09:05,573 INFO     Waiting for application startup.
+2022-04-16 17:09:05,573 INFO     Application startup complete.
+2022-05-06 21:39:44,666 INFO     Started server process [26984]
+2022-05-06 21:39:44,667 INFO     Waiting for application startup.
+2022-05-06 21:39:44,668 INFO     Application startup complete.
+2022-05-06 21:40:13,915 INFO     Displaying dashboard
+2022-05-06 21:40:24,789 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 215, in data_update_post
+    auth = "Bearer " + acctoken['access_token']
+KeyError: 'access_token'
+2022-05-06 21:40:39,755 INFO     Displaying dashboard
+2022-05-06 21:42:16,324 INFO     Displaying dashboard
+2022-05-06 21:45:13,807 INFO     Shutting down

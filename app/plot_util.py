@@ -5,7 +5,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
+PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+ARTIFACT_PATH = PROJECT_PATH / "static"
 
 def plot_fcn(
     xx,
@@ -20,7 +23,7 @@ def plot_fcn(
     ylabel_name,
     title_name,
     xmin=0,
-    xmax=13,
+    xmax=52,
 ):
     plt.figure(facecolor=(0.99, 0.97, 0.97), dpi=300)
     ax = plt.axes()
@@ -48,9 +51,8 @@ def plot_fcn(
 
 
 def plot_weight(data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
-    SOURCE_DATA_FILE = PROJECT_PATH / "data/wfa_girls_0-to-13-weeks_zscores.csv"
-    ARTIFACT_PATH = PROJECT_PATH / "static"
+    global PROJECT_PATH, ARTIFACT_PATH
+    SOURCE_DATA_FILE = PROJECT_PATH / "data/wfa_girls_0-to-5-years_zscores.csv"
 
     df = pd.read_csv(SOURCE_DATA_FILE)
     del_cols = ["L", "M", "S"]
@@ -69,7 +71,7 @@ def plot_weight(data):
         x_J,
         y_J,
         0,
-        9,
+        13,
         ARTIFACT_PATH,
         "weight.jpg",
         "Weeks",
@@ -80,9 +82,8 @@ def plot_weight(data):
 
 
 def plot_height(data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
-    SOURCE_DATA_FILE = PROJECT_PATH / "data/lhfa_girls_0-to-13-weeks_zscores.csv"
-    ARTIFACT_PATH = PROJECT_PATH / "static"
+    global PROJECT_PATH, ARTIFACT_PATH
+    SOURCE_DATA_FILE = PROJECT_PATH / "data/lhfa_girls_0-to-2-years_zscores.csv"
 
     df = pd.read_csv(SOURCE_DATA_FILE)
     del_cols = ["L", "M", "S"]
@@ -100,7 +101,7 @@ def plot_height(data):
         x_J,
         y_J,
         40,
-        67,
+        80,
         ARTIFACT_PATH,
         "height.jpg",
         "Weeks",
@@ -111,9 +112,8 @@ def plot_height(data):
 
 
 def plot_head(data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
-    SOURCE_DATA_FILE = PROJECT_PATH / "data/hcfa-girls-0-13-zscores.csv"
-    ARTIFACT_PATH = PROJECT_PATH / "static"
+    global PROJECT_PATH, ARTIFACT_PATH
+    SOURCE_DATA_FILE = PROJECT_PATH / "data/hcfa-girls-0-5-zscores.csv"
 
     df = pd.read_csv(SOURCE_DATA_FILE)
     del_cols = ["L", "M", "S"]
@@ -131,7 +131,7 @@ def plot_head(data):
         x_J,
         y_J,
         30,
-        44,
+        50,
         ARTIFACT_PATH,
         "head.jpg",
         "Weeks",
@@ -142,9 +142,8 @@ def plot_head(data):
 
 
 def plot_wh(weight_data, height_data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
+    global PROJECT_PATH, ARTIFACT_PATH
     SOURCE_DATA_FILE = PROJECT_PATH / "data/wfl_girls_0-to-2-years_zscores.csv"
-    ARTIFACT_PATH = PROJECT_PATH / "static"
 
     df = pd.read_csv(SOURCE_DATA_FILE)
     del_cols = ["L", "M", "S"]
@@ -166,30 +165,30 @@ def plot_wh(weight_data, height_data):
         df,
         x_J,
         y_J,
-        0,
-        10,
+        2,
+        12,
         ARTIFACT_PATH,
         "wh.jpg",
         "Height [cm]",
         "Weight [kg]",
         "Weight/Height",
         xmin=48,
-        xmax=65,
+        xmax=70,
     )
     return
 
 
 def plot_feeding(feeding_data, weight_data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
-    ARTIFACT_PATH = PROJECT_PATH / "static"
+    global PROJECT_PATH, ARTIFACT_PATH
     
     df = pd.DataFrame(feeding_data)
     df2 = df[["date", "total_vol"]].copy()
     df2["total_vol"] = df2.total_vol.astype(int)
     df2["date"] = pd.to_datetime(df2["date"], dayfirst=True).dt.date
-    df2["J_ma3"] = df2['total_vol'].rolling(7).mean()
+    df2["J_ma"] = df2['total_vol'].rolling(7).mean()
 
     df_weight = pd.DataFrame(weight_data)
+    number_of_data = df_weight.shape[0]
     df_weight["date"] = pd.to_datetime(df_weight["date"], dayfirst=True).dt.date
     df_weight[["week", "weight"]] = df_weight[["week", "weight"]].astype(float)
     df_weight["total_feed"] = 150 * df_weight.weight
@@ -201,19 +200,20 @@ def plot_feeding(feeding_data, weight_data):
     ax = plt.axes()
     ax.set_facecolor((0.99, 0.97, 0.97))
     plt.bar(df2.date, df2.total_vol.values, label='Daily Volume Eaten')
-    plt.plot(df2.date, df2.J_ma3,color="red", alpha=0.6, label="Jen 7-day MA")
-    plt.plot(df_weight.date, df_weight.total_feed, color="orange", label="Calc Requirement")
+    plt.plot(df2.date, df2.J_ma,color="red", alpha=0.6, label="Jen 7-day MA")
+    #plt.plot(df_weight.date, df_weight.total_feed, color="orange", label="Calc Requirement")
     plt.fill_between(
         df_weight.date,
-        df_weight.total_feed_high,
-        df_weight.total_feed_low,
+        700*np.ones(number_of_data), #df_weight.total_feed_high,
+        600*np.ones(number_of_data), #df_weight.total_feed_low,
         color="green",
         alpha=0.4,
     )
     plt.margins(0.01,0.1)
+    plt.text(df2.date[-25],800, f"MA7: {df2.J_ma[-1]}")
     plt.xticks(rotation=45, ha="right")
     plt.ylabel("Volume Food per Day [ml]")
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.title("Daily Food Intake")
     plt.savefig(ARTIFACT_PATH / "feeding.jpg", bbox_inches='tight')
     plt.clf()
@@ -223,8 +223,7 @@ def plot_feeding(feeding_data, weight_data):
 
 
 def plot_prop(feeding_data):
-    PROJECT_PATH = pathlib.Path(__file__).resolve().parent.parent
-    ARTIFACT_PATH = PROJECT_PATH / "static"
+    global PROJECT_PATH, ARTIFACT_PATH
 
     df = pd.DataFrame(feeding_data)
     df["bm_vol"] = df.bm_vol.astype(int)
@@ -246,3 +245,20 @@ def plot_prop(feeding_data):
     plt.close('all') 
 
     return
+
+def plot_sleep(df):
+    global PROJECT_PATH, ARTIFACT_PATH
+    
+    plt.figure()
+    plt.bar(df.Date, df.Sleep_time.astype('timedelta64[h]'),color="#38B09D")
+    plt.xticks(rotation=45)
+    plt.hlines(15.0,df.Date.iloc[0], df.Date.iloc[-1], color='magenta')
+    plt.show()
+    plt.savefig(ARTIFACT_PATH / "sleep_time.jpg")
+    plt.clf()
+    plt.close('all') 
+    
+    return
+    
+    
+    
