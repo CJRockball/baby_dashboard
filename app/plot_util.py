@@ -185,7 +185,7 @@ def plot_feeding(feeding_data, weight_data):
     df2 = df[["date", "total_vol"]].copy()
     df2["total_vol"] = df2.total_vol.astype(int)
     df2["date"] = pd.to_datetime(df2["date"], dayfirst=True).dt.date
-    df2["J_ma"] = df2['total_vol'].rolling(7).mean()
+    df2["J_ma"] = round(df2['total_vol'].rolling(7).mean(),1)
 
     df_weight = pd.DataFrame(weight_data)
     number_of_data = df_weight.shape[0]
@@ -210,7 +210,7 @@ def plot_feeding(feeding_data, weight_data):
         alpha=0.4,
     )
     plt.margins(0.01,0.1)
-    plt.text(df2.date[-25],800, f"MA7: {df2.J_ma[-1]}")
+    plt.text(df2.date[-25],860, f"MA7: {df2.J_ma[-1]}")
     plt.xticks(rotation=45, ha="right")
     plt.ylabel("Volume Food per Day [ml]")
     plt.legend(loc='upper left')

@@ -208,16 +208,17 @@ async def data_update_post(request: Request,
         logging.info("Updating feeding data")
         
     elif submit == "Reset DB":
-        passport = {'username':'user1', 'password':'foo123'}
-        tok = httpx.post("http://127.0.0.1:8000/api/v1/up_data/token", data={'username':"user1", "password":"foo123"})
+        # passport = {'username':'user1', 'password':'foo123'}
+        # tok = httpx.post("http://127.0.0.1:8000/api/v1/up_data/token", data={'username':"user1", "password":"foo123"})
     
-        acctoken = tok.json()
-        auth = "Bearer " + acctoken['access_token']
-        headers = {
-            'Content-Type': 'application/json',
-            'Authorization': auth
-            }
-        data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
+        # acctoken = tok.json()
+        # auth = "Bearer " + acctoken['access_token']
+        # headers = {
+        #     'Content-Type': 'application/json',
+        #     'Authorization': auth
+        #     }
+        # data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
+        data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db")
         input_text = "Reset DB"
         logging.info("Reset db")
        

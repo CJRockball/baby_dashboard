@@ -3095,3 +3095,328 @@ KeyError: 'access_token'
 2022-05-06 21:40:39,755 INFO     Displaying dashboard
 2022-05-06 21:42:16,324 INFO     Displaying dashboard
 2022-05-06 21:45:13,807 INFO     Shutting down
+2022-05-19 06:46:58,453 INFO     Started server process [18308]
+2022-05-19 06:46:58,453 INFO     Waiting for application startup.
+2022-05-19 06:46:58,457 INFO     Application startup complete.
+2022-05-19 06:47:20,533 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 62, in map_httpcore_exceptions
+    yield
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 276, in handle_async_request
+    ) = await self._pool.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection_pool.py", line 234, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\connection.py", line 148, in handle_async_request
+    return await self.connection.handle_async_request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 128, in handle_async_request
+    ) = await self._receive_response(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 189, in _receive_response
+    event = await self._receive_event(timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_async\http11.py", line 225, in _receive_event
+    data = await self.socket.read(self.READ_NUM_BYTES, timeout)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpcore\_backends\anyio.py", line 63, in read
+    raise ReadTimeout from None
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 132, in baby_dashboard
+    weight_json = await get_weight()
+  File ".\app\data_handler.py", line 18, in get_weight
+    w_json = await client.get(adr + "weight")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1704, in get
+    return await self.request(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1483, in request
+    response = await self.send(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1571, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1599, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1636, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_client.py", line 1673, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 271, in handle_async_request
+    (
+  File "C:\Users\PatCa\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\httpx\_transports\default.py", line 79, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2022-05-19 06:54:05,067 INFO     Displaying dashboard
+2022-05-19 06:54:36,420 INFO     Displaying dashboard
+2022-05-19 06:54:53,093 INFO     Updating head data
+2022-05-19 06:54:59,918 INFO     Displaying dashboard
+2022-05-19 06:55:29,393 INFO     Reset db
+2022-05-19 06:55:36,020 INFO     Displaying dashboard
+2022-05-19 07:04:34,088 INFO     Displaying dashboard
+2022-05-19 07:11:20,361 INFO     Started server process [9976]
+2022-05-19 07:11:20,362 INFO     Waiting for application startup.
+2022-05-19 07:11:20,363 INFO     Application startup complete.
+2022-05-19 07:11:21,539 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 163, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 38, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-05-19 07:11:24,489 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 163, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 38, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-05-19 07:13:12,005 INFO     Started server process [9172]
+2022-05-19 07:13:12,006 INFO     Waiting for application startup.
+2022-05-19 07:13:12,007 INFO     Application startup complete.
+2022-05-19 07:13:16,924 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 163, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 38, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-05-19 07:14:29,983 INFO     Shutting down
+2022-05-19 07:14:30,093 INFO     Waiting for application shutdown.
+2022-05-19 07:14:30,094 INFO     Application shutdown complete.
+2022-05-19 07:14:30,094 INFO     Finished server process [9172]
+2022-05-19 07:15:19,586 INFO     Started server process [7252]
+2022-05-19 07:15:19,586 INFO     Waiting for application startup.
+2022-05-19 07:15:19,589 INFO     Application startup complete.
+2022-05-19 07:16:32,776 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 163, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 38, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-05-19 07:23:44,034 ERROR    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 373, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\applications.py", line 208, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 181, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\middleware\errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    raise exc
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\starlette\routing.py", line 61, in app
+    response = await func(request)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\fastapi\routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File ".\app\main.py", line 149, in baby_dashboard
+    plot_wh(weight_json.json(), height_json.json())
+  File ".\app\plot_util.py", line 163, in plot_wh
+    plot_fcn(
+  File ".\app\plot_util.py", line 38, in plot_fcn
+    plt.scatter(x_J, y_J, label="Jennifer")
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\pyplot.py", line 2807, in scatter
+    __ret = gca().scatter(
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\__init__.py", line 1412, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "C:\Users\PatCa\anaconda3\lib\site-packages\matplotlib\axes\_axes.py", line 4323, in scatter
+    raise ValueError("x and y must be the same size")
+ValueError: x and y must be the same size
+2022-05-19 07:27:21,855 INFO     Displaying dashboard
+2022-05-19 07:27:56,455 INFO     Started server process [18500]
+2022-05-19 07:27:56,456 INFO     Waiting for application startup.
+2022-05-19 07:27:56,457 INFO     Application startup complete.
+2022-05-19 07:28:05,741 INFO     Displaying dashboard
+2022-05-19 07:28:50,187 INFO     Started server process [1448]
+2022-05-19 07:28:50,188 INFO     Waiting for application startup.
+2022-05-19 07:28:50,189 INFO     Application startup complete.
+2022-05-19 07:28:52,128 INFO     Displaying dashboard
+2022-05-19 07:29:02,697 INFO     Started server process [17920]
+2022-05-19 07:29:02,697 INFO     Waiting for application startup.
+2022-05-19 07:29:02,699 INFO     Application startup complete.
+2022-05-19 07:29:06,508 INFO     Displaying dashboard
+2022-05-19 07:29:16,675 INFO     Started server process [19240]
+2022-05-19 07:29:16,675 INFO     Waiting for application startup.
+2022-05-19 07:29:16,679 INFO     Application startup complete.
+2022-05-19 07:29:18,639 INFO     Displaying dashboard
+2022-05-19 10:37:04,872 INFO     Updating head data
+2022-05-19 10:37:08,596 INFO     Displaying dashboard
+2022-05-19 10:37:14,905 INFO     Reset db
+2022-05-19 10:37:18,866 INFO     Displaying dashboard
+2022-05-19 10:55:33,967 INFO     Shutting down
+2022-05-19 10:55:34,080 INFO     Waiting for application shutdown.
+2022-05-19 10:55:34,080 INFO     Application shutdown complete.
+2022-05-19 10:55:34,082 INFO     Finished server process [19240]
