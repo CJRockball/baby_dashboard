@@ -218,7 +218,7 @@ async def data_update_post(request: Request,
         #     'Authorization': auth
         #     }
         # data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db", headers=headers)
-        data = httpx.get("http://127.0.0.1:8000/api/v1/up_data/reset_db")
+        data = httpx.get("http://baby-j-data-service.herokuapp.com/api/v1/up_data/reset_db") # "http://127.0.0.1:8000/api/v1/up_data/reset_db")
         input_text = "Reset DB"
         logging.info("Reset db")
        
