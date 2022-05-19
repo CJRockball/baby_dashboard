@@ -43,6 +43,7 @@ def plot_fcn(
     plt.ylabel(ylabel_name)
     plt.title(title_name)
     plt.legend()
+    plt.legend(loc='upper left')
     plt.savefig(ARTIFACT_PATH / fname)
     plt.clf()
     plt.close('all') 
@@ -238,7 +239,7 @@ def plot_prop(feeding_data):
     plt.figure(dpi=300)
     plt.bar(df.date, df.bm_prop.values, label="Formula")
     plt.bar(df.date, df.form_prop.values, bottom=df.bm_prop.values, label="BM")
-
+    plt.legend(loc='upper left')
     plt.xticks(rotation=45, ha="right")
     plt.savefig(ARTIFACT_PATH / "proportion.jpg")
     plt.clf()
@@ -255,6 +256,7 @@ def plot_sleep(df):
     plt.hlines(15.0,df.Date.iloc[0], df.Date.iloc[-1], color='magenta')
     plt.show()
     plt.savefig(ARTIFACT_PATH / "sleep_time.jpg")
+    plt.legend(loc='upper left')
     plt.clf()
     plt.close('all') 
     
